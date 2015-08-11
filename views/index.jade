@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  #home-banner
+    .container
+      .row
+        .col-lg-12
+          #home-banner-title
+            h1 Hypelist
+          #home-banner-message
+            h3 The only list you need to be on for the most exclusive parties
+            .download-button
+              a(href='/')
+                img(src= '/images/appstore.svg' id='downloadbtn')
+                
+  #events-section
+    .container
+      .section-title
+        h3 Better with a host
+        p Discover events where our hosts can provide you exclusive service you can’t find anywhere else
+      .row.row-centered
+        .col-lg-4.col-centered
+          #first-event-box
+            h1 1oak
+        .col-lg-4.col-centered
+          #second-event-box
+            h1 GILDED LILY
+        .col-lg-4.col-centered
+          #third-event-box
+            h1 UP&DOWN
+            
+  #explanation-section
+    .container
+      .section-title
+        h3 HOW IT WORKS
+        h3 FIRST, PICK AN EVENT YOU WANT TO ATTEND
+      .row
+        .col-lg-4
+          h4 CHOOSE YOUR HOST
+          p ALL OF OUR HOSTS ARE VETTED PROFESSIONALS WHO KNOW HOW TO THROW THE BEST PARTIES
+        .col-lg-4
+          h4 SUBMIT YOUR GUESTLIST
+          p INIVTE YOUR FRIENDS TO JOIN THE PARTY AND REQUEST TO BE ADDED ON THE GUESTLIST
+        .col-lg-4
+          h4 GET READY FOR THE PARTY
+          p DRESS IN APPROPRIATE ATTIRE. FOLLOW THE HOST GUIDELINES . AND REMEMBER THAT THE VENUE HAS FINAL SAY ON ALL ENTRANCE, PRICING, AND RULES.
+          
+  #hosts-section
+    .container
+      .section-title
+        h3 Our featured hosts
+      .row.row-centered
+        .col-lg-4.col-centered
+          #first-host-box
+            h1 David
+        .col-lg-4.col-centered
+          #second-host-box
+            h1 Rich
+        .col-lg-4.col-centered
+          #third-host-box
+            h1 Ivy

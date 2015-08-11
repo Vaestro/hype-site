@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= title
+    link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/home.css')
+
+  body
+    include ./includes/navbar.jade
+    #wrapper
+      block content
+    include ./includes/footer.jade
