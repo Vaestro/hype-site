@@ -3,7 +3,7 @@ html
   head
     title= title
     link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/master.css')
     link(rel='stylesheet', href='/stylesheets/home.css')
 
   body
@@ -11,3 +11,17 @@ html
     #wrapper
       block content
     include ./includes/footer.jade
+    //- Preload images so that they are ready when the website loads
+    #preload
+      img(src= '/images/hypelistlogo.svg' width="1" height="1" alt="Image 01")
+      img(src= '/images/instagirls.png' width="1" height="1" alt="Image 02")
+      img(src= '/images/appstore.svg' width="1" height="1" alt="Image 03")
+      img(src= '/images/1oak.png' width="1" height="1" alt="Image 04")
+      img(src= '/images/gilded.png' width="1" height="1" alt="Image 05")
+      img(src= '/images/upanddown.png' width="1" height="1" alt="Image 06")
+      img(src= '/images/david.png' width="1" height="1" alt="Image 07")
+      img(src= '/images/rich.png' width="1" height="1" alt="Image 08")
+      img(src= '/images/philip.png' width="1" height="1" alt="Image 09")
+      //- img(src= '/images/twitter.svg' width="1" height="1" alt="Image 03")
+      //- img(src= '/images/instagram.svg' width="1" height="1" alt="Image 03")
+      //- img(src= '/images/facebook.svg' width="1" height="1" alt="Image 03")
