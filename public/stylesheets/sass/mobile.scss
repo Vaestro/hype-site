@@ -1,0 +1,129 @@
+@import "media-queries";
+@include max-screen(675px) {
+  $screen-width: 420px;
+  body,
+  #wrapper {
+    height: 100%;
+  }
+  #home-banner {
+    height: 100vh;
+    padding: 0;
+    background-size: cover;
+    background-position: top left;
+    #home-banner-title {
+      padding-top: 33vh;
+      h1 {
+        font-size: 2.75em;
+      }
+    }
+    #home-banner-message {
+      h3 {
+        font-size: 16px;
+        font-weight: 400;
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+      }
+    }
+    .download-button {
+      #downloadbtn {
+        width: 66%;
+      }
+    }
+  }
+  .event-box {
+    width: $screen-width * 0.8;
+    height: $screen-width * 0.8;
+    margin: 10px 0;
+  }
+  #first-event-box,
+  #second-event-box,
+  #third-event-box {
+    @extend .event-box;
+  }
+  #explanation-section {
+    height: 25%;
+    h3 {
+      font-size: 20px;
+      font-weight: 400;
+      text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    }
+    p {
+      font-weight: 100;
+      padding: 10px 5px;
+    };
+  }
+  .host-box {
+    margin: 10px 0;
+  }
+  #first-host-box,
+  #second-host-box,
+  #third-host-box {
+    @extend .host-box;
+  }
+  #banner {
+    padding: 100px 0 0;
+  }
+  #submitbetarequest {
+    padding: 10px;
+    max-width: 100%;
+    margin: 10px auto;
+    label {
+      font-size: 1em;
+    }
+    input, textarea {
+      font-size: 1.5em;
+    }
+  }
+}
+
+//   #mobile-header {
+//     display: block;
+//     z-index: 1;
+//   }
+//   #home-banner-title {
+//     padding-bottom: 15%;
+//   }
+//
+//   #home-banner-divider {
+//     width: 100%;
+//   }
+//   .hypelist-links {
+//     display: none;
+//   }
+// }
+// @media only screen and (max-height: 675px) {
+//   #banner {
+//     overflow: hidden;
+//   }
+// }
+// @media only screen and (max-width: 420px) {
+//   h1 {
+//     line-height: 40px;
+//     font-size: 36px;
+//     margin: 0 20px 40px;
+//   }
+//   h3 {
+//     font-size: 20px;
+//     font-weight: 400;
+//   }
+//   p {
+//     margin: 0 20px 20px;
+//   }
+//   #banner-title h1 {
+//     line-height: 40px;
+//     font-size: 36px;
+//   }
+//   #banner-message h3 {
+//     font-size: 20px;
+//     font-weight: 400;
+//   }
+//   #banner-footnote h5 {
+//     font-size: 20px;
+//     font-weight: 200;
+//   }
+//   .download-button {
+//     padding-top: 50px;
+//   }
+//   #downloadbtn {
+//     width: 50%;
+//   }
+// }

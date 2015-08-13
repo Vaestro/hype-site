@@ -1,0 +1,159 @@
+@import "master";
+
+#home-banner {
+  color: $primary-text-color;
+  padding: 150px 0 100px 0;
+  text-align: center;
+  background-image: url('/images/instagirls.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  #home-banner-title {
+      position: relative;
+      text-align:center;
+      h1 {
+        margin: 0 0 0.5em 0;
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+        font-size: 4em;
+        letter-spacing: 7.5px;
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        -moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
+        -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+        -ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        display: inline-block;
+        opacity: 1;
+        padding: 0.35em 1em;
+        position: relative;
+      }
+      h1:before {
+        top: 0;
+        left: 0;
+      }
+      h1:before, h1:after {
+        -moz-transition: width 0.85s ease;
+        -webkit-transition: width 0.85s ease;
+        -ms-transition: width 0.85s ease;
+        transition: width 0.85s ease;
+        -moz-transition-delay: 0.25s;
+        -webkit-transition-delay: 0.25s;
+        -ms-transition-delay: 0.25s;
+        transition-delay: 0.25s;
+        background: #fff;
+        content: '';
+        display: block;
+        height: 2px;
+        position: absolute;
+        width: 100%;
+      }
+      h1:after {
+        bottom: 0;
+        right: 0;
+          }
+      }
+
+  #home-banner-message h3 {
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+  }
+
+  .download-button {
+    padding: 25px 0;
+    opacity: 0;
+  }
+
+  .beta-access-button{
+    background-color: $accent-green-color;
+    color: white;
+    padding: 10px 25px 10px 25px;
+    opacity: 0;
+    &:hover, &:focus{
+      text-decoration: none;
+      color: white;
+      background-color: $accent-green-color-dark;
+    }
+  }
+}
+
+.section-title{
+  padding-bottom: 25px;
+  text-align: center;
+}
+#events-section{
+  padding: 50px 0 75px 0;
+}
+.event-box {
+  text-align: center;
+  display: table;
+  height: 350px;
+  width: 350px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+
+  h1 {
+    font-size: 2em;
+    display:table-cell;
+    vertical-align: middle;
+  }
+}
+
+#first-event-box{
+  @extend .event-box;
+  background-image: url('/images/1oak.png');
+}
+#second-event-box{
+  @extend .event-box;
+  background-image: url('/images/gilded.png');
+}
+#third-event-box{
+  @extend .event-box;
+  background-image: url('/images/upanddown.png');
+}
+#explanation-section{
+  background-color: $secondary-black-color;
+  height: 25%;
+  padding: 50px 0 75px 0;
+  h3{
+    font-size: 20px;
+    font-weight: 400;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+  p{
+    font-weight: 100;
+    color: $tertiary-font-color};
+}
+#hosts-section{
+  padding: 50px 0 75px 0;
+}
+.host-box{
+  text-align: center;
+  display: table;
+  height: 450px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  h1{
+    font-size: 2em;
+    display:table-cell;
+    vertical-align: bottom;
+    padding-bottom: 50px};
+}
+#first-host-box{
+  @extend .host-box;
+  background-image: url('/images/david.png');
+}
+#second-host-box{
+  @extend .host-box;
+  background-image: url('/images/rich.png');
+}
+#third-host-box{
+  @extend .host-box;
+  background-image: url('/images/philip.png');
+}

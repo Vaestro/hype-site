@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  #beta-request-form
+    #banner
+      .container
+        .row  
+          .col-lg-12
+            h1 signup for beta access
+            h3 be one of the first to see what all the hype is about
+    .container
+      form#submitbetarequest(data-parsley-validate)
+        .top-row
+          .field-wrap
+            label(for="firstname")
+              p First Name <span class="req">*</span>
+            input(type="text" name="firstname" id="inputFirstName" required)
+          .field-wrap
+            label(for="lastname")
+              p Last Name <span class="req">*</span>
+            input(type="text" name="lastname" id="inputLastName" required)
+        .field-wrap
+          label(for="email")
+            p Email <span class="req">*</span>
+          input(type="email" name="email" data-parsley-validate="change" id="inputEmail" required)
+        .field-wrap
+          label(for="city")
+            p City <span class="req">*</span>
+          input(type="text" placeholder="" name="city" id="inputCity" required)
+        .field-wrap
+          label(for="instagram")
+            p Instagram <span class="req">*</span>
+          input(type="text" name="instagram" id="inputInstagram" required)
+        .field-wrap
+          label(for="snapchat")
+            p Snapchat <span class="req">*</span>
+          input(type="text" name="instagram" id="inputSnapchat" required)
+        input(type="submit" id="btnSubmitBetaRequest" class="button button-block")
+  .modal-wrapper
+    .modal
+      .head
+        a.btn-close.trigger
+      .content
+        h1 Thanks for signing up
+        h3 We will send you an email as soon as we accept you for our beta

@@ -4,11 +4,25 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var sassMiddleware = require('node-sass-middleware');
+// var mongoose = require('mongoose');
+// var db = mongoose.connection;
+
+// Database
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/weblist');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+// mongoose.connect('mongodb://localhost/test');
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function (callback) {
+//   // yay!
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,16 +34,25 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(require('node-sass-middleware')({
-  src: path.join(__dirname, 'public/stylesheets/sass'),
-  dest: path.join(__dirname, 'public/stylesheets'),
-  debug: true,
-  indentedSyntax: true,
-  sourceMap: true,
-  outputStyle: 'compressed',
-  prefix: '/stylesheets'
-}));
+// adding the sass middleware
+app.use(
+  sassMiddleware({
+    /* Options */
+    src: path.join(__dirname, 'public/stylesheets/sass'),
+    dest: path.join(__dirname, 'public/stylesheets'),
+    debug: true,
+    outputStyle: 'compressed',
+    prefix:  '/stylesheets'
+  })
+);
+
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Make our db accessible to our router
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 
 app.use('/', routes);
 app.use('/users', users);

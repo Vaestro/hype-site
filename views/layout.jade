@@ -2,26 +2,44 @@ doctype html
 html
   head
     title= title
+    meta(name="viewport" content="width=device-width, initial-scale=1")
     link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
-    link(rel='stylesheet', href='/stylesheets/master.css')
-    link(rel='stylesheet', href='/stylesheets/home.css')
+    //- link(rel='stylesheet', href='/stylesheets/master.css')
+    if title === "Hypelist"
+      link(rel='stylesheet', href='/stylesheets/home.css')
+    else if title == "Hypelist - Beta Access"
+      link(rel='stylesheet', href='/stylesheets/betarequest.css')
+    link(rel='stylesheet', href='/stylesheets/mobile.css')
 
   body
     include ./includes/navbar.jade
     #wrapper
       block content
     include ./includes/footer.jade
-    //- Preload images so that they are ready when the website loads
-    #preload
-      img(src= '/images/hypelistlogo.svg' width="1" height="1" alt="Image 01")
-      img(src= '/images/instagirls.png' width="1" height="1" alt="Image 02")
-      img(src= '/images/appstore.svg' width="1" height="1" alt="Image 03")
-      img(src= '/images/1oak.png' width="1" height="1" alt="Image 04")
-      img(src= '/images/gilded.png' width="1" height="1" alt="Image 05")
-      img(src= '/images/upanddown.png' width="1" height="1" alt="Image 06")
-      img(src= '/images/david.png' width="1" height="1" alt="Image 07")
-      img(src= '/images/rich.png' width="1" height="1" alt="Image 08")
-      img(src= '/images/philip.png' width="1" height="1" alt="Image 09")
-      //- img(src= '/images/twitter.svg' width="1" height="1" alt="Image 03")
-      //- img(src= '/images/instagram.svg' width="1" height="1" alt="Image 03")
-      //- img(src= '/images/facebook.svg' width="1" height="1" alt="Image 03")
+    script(src='http://code.jquery.com/jquery-2.1.4.min.js')
+    
+    if title === "Hypelist"
+      //- Preload images so that they are ready when the homepage loads
+      #preload
+        img(src= '/images/hypelistlogo.svg' width="1" height="1" alt="Image 01")
+        img(src= '/images/instagirls.png' width="1" height="1" alt="Image 02")
+        img(src= '/images/appstore.svg' width="1" height="1" alt="Image 03")
+        img(src= '/images/1oak.png' width="1" height="1" alt="Image 04")
+        img(src= '/images/gilded.png' width="1" height="1" alt="Image 05")
+        img(src= '/images/upanddown.png' width="1" height="1" alt="Image 06")
+        img(src= '/images/david.png' width="1" height="1" alt="Image 07")
+        img(src= '/images/rich.png' width="1" height="1" alt="Image 08")
+        img(src= '/images/philip.png' width="1" height="1" alt="Image 09")
+        //- img(src= '/images/twitter.svg' width="1" height="1" alt="Image 03")
+        //- img(src= '/images/instagram.svg' width="1" height="1" alt="Image 03")
+        //- img(src= '/images/facebook.svg' width="1" height="1" alt="Image 03")
+      //- Import javascripts for homepage
+      script(src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js")
+      script(src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js")
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js")
+      script(src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js")
+      script(src='/javascripts/home.js')
+    else if title === "Hypelist - Beta Access"
+      script(src='http://parsleyjs.org/dist/parsley.min.js')
+      script(src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en")
+      script(src='/javascripts/form.js')
