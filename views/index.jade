@@ -1,22 +1,32 @@
 extends layout
 
 block content
-  #home-banner
+  #banner-wrapper
+    #first-banner
+      .container
+        h1.banner-title Hypelist
+        h3.banner-message The only list you need to be on for the most exclusive parties
+        a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
+    #second-banner
+      .container
+        h3.banner-message The only list you need to be on for the most exclusive
+        h1.banner-title Pregames
+        a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
+    #third-banner
+      .container
+        h3.banner-message The only list you need to be on for the most exclusive
+        h1.banner-title postgames
+        a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
+  #intro-section
     .container
       .row
         .col-lg-12
-          #home-banner-title
-            h1 Hypelist
-          #home-banner-message
-            h3 The only list you need to be on for the most exclusive parties
-          .download-button
-            a
-              img(src= '/images/appstore.svg' id='downloadbtn')
-          a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
+          h3 your night simplified
+          h5 we give you access to the all the events you really want, without dealing with all the people trying to get you there, to provide the world-class service that will make you a king for a night
   #events-section
     .container
       .section-title
-        h3 Better with a host
+        h3 Our venues 
         p Discover events where our hosts can provide you exclusive service you can’t find anywhere else
       .row.row-centered
         .col-lg-4.col-centered
@@ -28,7 +38,7 @@ block content
         .col-lg-4.col-centered
           #third-event-box
             h1 UP&DOWN
-            
+  
   #explanation-section
     .container
       .section-title

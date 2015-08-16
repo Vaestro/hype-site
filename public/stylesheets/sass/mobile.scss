@@ -7,13 +7,18 @@
   }
   #home-banner {
     height: 100vh;
-    padding: 0;
+    padding: 0 20px;
     background-size: cover;
-    background-position: top left;
+    background-position: top;
     #home-banner-title {
-      padding-top: 33vh;
+      padding-top: 30vh;
       h1 {
-        font-size: 2.75em;
+        font-size: 3em;
+        margin: 0;
+        padding: 0 0 25px 0;
+      }
+      h1:before, h1:after {
+        display: none;
       }
     }
     #home-banner-message {
@@ -21,13 +26,12 @@
         font-size: 16px;
         font-weight: 400;
         text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+        padding-bottom: 50px;
       }
     }
-    .download-button {
-      #downloadbtn {
-        width: 66%;
-      }
-    }
+  }
+  #events-section {
+    padding-top: 25px;
   }
   .event-box {
     width: $screen-width * 0.8;
@@ -40,7 +44,7 @@
     @extend .event-box;
   }
   #explanation-section {
-    height: 25%;
+    padding-top: 25px;
     h3 {
       font-size: 20px;
       font-weight: 400;
@@ -51,6 +55,9 @@
       padding: 10px 5px;
     };
   }
+  #hosts-section {
+    padding-top: 25px;
+  }
   .host-box {
     margin: 10px 0;
   }
@@ -59,8 +66,13 @@
   #third-host-box {
     @extend .host-box;
   }
+  .download-button {
+    #downloadbtn {
+      width: 66%;
+    }
+  }
   #banner {
-    padding: 100px 0 0;
+    padding: 100px 0 25px 0;
   }
   #submitbetarequest {
     padding: 10px;
@@ -72,6 +84,10 @@
     input, textarea {
       font-size: 1.5em;
     }
+  }
+  .modal {
+    width: 90%;
+    height: 66%;
   }
 }
 

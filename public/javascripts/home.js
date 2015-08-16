@@ -1,16 +1,19 @@
 $(function() {
+  $('#banner-wrapper').slick({
+      speed: 5000,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 2500,
+      infinite: false,
+      adaptiveHeight: true
+    });
   // FadeIn Slogan and Download Button
-  $('#home-banner-message').hide()
-  $('#home-banner-message').fadeIn(3000, function() {
-    $(".download-button").animate({
-      opacity: 1
-    }, 1000, function() {
+  $('h3.banner-message').hide()
+  $('h3.banner-message').fadeIn(3000, function() {
       $(".beta-access-button").animate({
         opacity: 1
-      }, 500);
-    });
+      }, 1000);
   });
-
   // Scrolling Magic
   var controller = new ScrollMagic.Controller();
 
