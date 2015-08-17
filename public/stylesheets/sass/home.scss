@@ -109,7 +109,7 @@
 }
 #first-host-box {
   @extend .host-box;
-  background-image: url("/images/joey.png");
+  background-image: url("/images/bryan.png");
 }
 #second-host-box {
   @extend .host-box;
@@ -121,7 +121,7 @@
 }
 #fourth-host-box {
   @extend .host-box;
-  background-image: url("/images/bryan.png");
+  background-image: url("/images/joey.png");
 }
 
 #events-section {
@@ -130,43 +130,49 @@
   .message {
     padding-top: 150px;
     text-align: right;
+    // p {
+    //   max-width: 300px;
+    //   text-align: right;
+    //   right: 25px;
+    //   position: absolute;
+    // }
   }
 }
-.event-box {
-  text-align: center;
-  display: table;
-  height: 350px;
-  width: 350px;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  opacity: 0;
-  h1 {
-    font-size: 2em;
-    display: table-cell;
-    vertical-align: middle;
-  }
-}
-#first-event-box {
-  @extend .event-box;
-  background-image: url("/images/1oak.png");
-}
-#second-event-box {
-  @extend .event-box;
-  background-image: url("/images/gilded.png");
-}
-#third-event-box {
-  @extend .event-box;
-  background-image: url("/images/upanddown.png");
-}
+// .event-box {
+//   text-align: center;
+//   display: table;
+//   height: 350px;
+//   width: 350px;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-size: cover;
+//   opacity: 0;
+//   h1 {
+//     font-size: 2em;
+//     display: table-cell;
+//     vertical-align: middle;
+//   }
+// }
+// #first-event-box {
+//   @extend .event-box;
+//   background-image: url("/images/1oak.png");
+// }
+// #second-event-box {
+//   @extend .event-box;
+//   background-image: url("/images/gilded.png");
+// }
+// #third-event-box {
+//   @extend .event-box;
+//   background-image: url("/images/upanddown.png");
+// }
 
-#select-host-section {
-  background-color: $secondary-black-color;
-  padding: 50px 0 75px;
-  .message {
-    padding-top: 50px;
-  }
-}
+// #select-host-section {
+//   background-color: $secondary-black-color;
+//   padding: 50px 0 75px;
+//   .message {
+//     padding-top: 50px;
+//   }
+// }
 
 #invite-guests-section {
   background-color: #fff;
