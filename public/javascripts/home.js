@@ -1,6 +1,6 @@
 $(function() {
   $('#banner-wrapper').slick({
-      speed: 5000,
+      speed: 2500,
       arrows: false,
       autoplay: true,
       autoplaySpeed: 2500,
