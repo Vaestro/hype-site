@@ -1,23 +1,31 @@
 footer
+  background-color: #000
   text-align: center
+  padding: 50px
   li
     list-style: none
     a
       color: white
 
-  hr
-    padding: 10px 0
   .download-button
     padding: 25px 0
 
   .hypelist-links
     padding: 5px 0 10px 0
+
   .social-media-icon
     display: inline
-    margin: 0 10px
-    height: 25px
-    width: 25px
-    // margin: 0 10px 0 0;
+
+  .icon
+    font-size: 2em
+    &:hover, &:active
+    	position:relative
+      transition:0.5s color ease
+    	text-decoration:none
+    	color:#2BC497
+    &:hover
+      color:#2BC497
+
   .wrapper
     margin:1em 0
     a
@@ -30,6 +38,11 @@ footer
       	font-size:1em
       &:hover
         color:#2BC497
+  .footer-left
+    text-align: right
+    padding-top: 10px
+  .footer-right
+    text-align: left
       // &.before:before, &.after:after
       //   content: ""
       //   transition:0.5s all ease

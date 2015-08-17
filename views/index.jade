@@ -4,61 +4,70 @@ block content
   #banner-wrapper
     #first-banner
       .container
-        h1.banner-title Hypelist
-        h3.banner-message The only list you need to be on for the most exclusive parties
-        a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
+        h1.banner-title There's always a party
+        h3.banner-message We'll get you there
+        .banner-button
+          a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
     #second-banner
       .container
         h3.banner-message The only list you need to be on for the most exclusive
         h1.banner-title Pregames
-        a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
+        .banner-button
+          a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
     #third-banner
       .container
         h3.banner-message The only list you need to be on for the most exclusive
         h1.banner-title postgames
-        a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
-  #intro-section
-    .container
-      .row
-        .col-lg-12
-          h3 your night simplified
-          h5 we give you access to the all the events you really want, without dealing with all the people trying to get you there, to provide the world-class service that will make you a king for a night
-  #events-section
-    .container
-      .section-title
-        h3 Our venues 
-        p Discover events where our hosts can provide you exclusive service you can’t find anywhere else
-      .row.row-centered
-        .col-lg-4.col-centered
-          #first-event-box
-            h1 1oak
-        .col-lg-4.col-centered
-          #second-event-box
-            h1 GILDED LILY
-        .col-lg-4.col-centered
-          #third-event-box
-            h1 UP&DOWN
-  
+        .banner-button
+          a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
+        
   #explanation-section
     .container
       .section-title
-        h3 HOW IT WORKS
-        h3 FIRST, PICK AN EVENT YOU WANT TO ATTEND
+        h3 Not just another night out
+        hr
+      .row-centered
+        .col-lg-6.col-centered
+          p Waiting in line. Arguing with the bouncer. Spending more than you should on drinks. And awkwardly standing in the corner with your wingman from high school. 
+            
+  #events-section
+    //- .container
+    //-   .section-title
+    //-     h3 Discover the best way to go out in your city
+    //-     p Pick from any of the most exclusive events in the city. We'll take care of the rest.
+    //-   .row.row-centered
+    //-     .col-lg-4.col-centered
+    //-       #first-event-box
+    //-         h1 1oak
+    //-     .col-lg-4.col-centered
+    //-       #second-event-box
+    //-         h1 Highline Ballroom
+    //-     .col-lg-4.col-centered
+    //-       #third-event-box
+    //-         h1 Lavo
+    .container
       .row
-        .col-lg-4
-          h4 CHOOSE YOUR HOST
-          p ALL OF OUR HOSTS ARE VETTED PROFESSIONALS WHO KNOW HOW TO THROW THE BEST PARTIES
-        .col-lg-4
-          h4 SUBMIT YOUR GUESTLIST
-          p INIVTE YOUR FRIENDS TO JOIN THE PARTY AND REQUEST TO BE ADDED ON THE GUESTLIST
-        .col-lg-4
-          h4 GET READY FOR THE PARTY
-          p DRESS IN APPROPRIATE ATTIRE AND ENJOY YOUR NIGHT WITH HYPELIST
-          
+        .col-lg-6.col-md-6.col-sm-6
+          .message
+            h3 Discover the best way to go out in your city
+            p Pick from any of the most exclusive events in the city. We'll take care of the rest.
+        .col-lg-6.col-md-6.col-sm-6
+          img.img-responsive(src= '/images/eventdiscovery.png')  
+      
+  //- #select-host-section
+  //-   .container
+  //-     .row
+  //-       .col-lg-6
+  //-         .message
+  //-           h3 Select a host
+  //-           p Our hosts are vetted professionals who know the venues in and out. They'll handle the bouncers, make sure you breeze through the line and put you at their table with free drinks. 
+  //-       .col-lg-6
+  //-         img.img-responsive(src= '/images/selecthost.png')
   #hosts-section
     .container
       .section-title
-        h3 Our featured hosts
+        h3 Select a host
+        p Our hosts are vetted professionals who know the venues in and out. They'll handle the bouncers, make sure you breeze through the line and put you at their table with free drinks. 
       .row.row-centered
         .col-lg-4.col-centered
           #first-host-box
@@ -69,3 +78,30 @@ block content
         .col-lg-4.col-centered
           #third-host-box
             h1 Ivy
+            
+  #invite-guests-section
+    .container
+      .row
+        .col-lg-6.col-md-6.col-sm-6
+          .message
+            h3 Invite your friends
+            p Be the one who always knows how to find the best parties. Add your friends to your guestlist and make sure your nights are always hype.
+        .col-lg-6.col-md-6.col-sm-6
+          img.img-responsive(src= '/images/inviteguestlist.png')        
+  #party-section
+    .container
+      .row
+        .col-lg-6.col-md-6.col-sm-6
+          img.img-responsive(src= '/images/tonightreview.png') 
+        .col-lg-6.col-md-6.col-sm-6
+          .message
+            h3 Get ready for the party
+            p Dress appropriately and try to make it on time. And if you have any questions, ask the host anything and they'll help you out. They'll let you know anything you need to make sure the night goes smooth. 
+            
+  #beta-section
+    .container
+      .section-title
+        h3 Coming soon to the app store
+        hr
+      .row-centered
+        a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA

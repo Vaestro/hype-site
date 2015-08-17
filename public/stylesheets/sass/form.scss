@@ -4,7 +4,7 @@
 #banner {
   padding: 100px 100px 0;
 }
-#submitbetarequest {
+form {
   padding: 50px;
   max-width: 700px;
   margin: 10px auto;
@@ -64,7 +64,7 @@
     resize: vertical;
   }
   .parsley-required,
-  .parsley-type {
+  .parsley-type, .parsley-errors-list {
     list-style: none;
     color: $accent-green-color;
     padding-top: 10px;
