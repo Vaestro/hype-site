@@ -1,6 +1,7 @@
 extends layout
 
 block content
+
   #contact-form
     #banner
       .container
@@ -9,7 +10,7 @@ block content
             h1 contact us
             h3 give us feedback
     .container
-      form#contact(data-parsley-validate)
+      form#contactform(action='/submitcontact', method='post')
         .top-row
           .field-wrap
             label(for="firstname")
@@ -27,4 +28,4 @@ block content
           label(for="message")
             p Message (20 chars min, 250 max):
           textarea(name="message" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="250" data-parsley-validation-threshold="10")
-        input(type="submit" id="btnSubmitBetaRequest" class="button button-block")
+        input(type="submit" id="btnSubmitContactForm" class="button button-block")

@@ -33,7 +33,7 @@
   #second-banner {
     height: 90vh;
     padding: 150px 0 200px;
-    background-image: url("/images/1oakgirls.png");
+    background-image: url("/images/dinnerparty.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -41,7 +41,7 @@
   #third-banner {
     height: 90vh;
     padding: 150px 0 200px;
-    background-image: url("/images/instagirls.png");
+    background-image: url("/images/lavobrunch.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -109,15 +109,19 @@
 }
 #first-host-box {
   @extend .host-box;
-  background-image: url("/images/david.png");
+  background-image: url("/images/joey.png");
 }
 #second-host-box {
   @extend .host-box;
-  background-image: url("/images/rich.png");
+  background-image: url("/images/fabio.png");
 }
 #third-host-box {
   @extend .host-box;
-  background-image: url("/images/philip.png");
+  background-image: url("/images/giuseppe.png");
+}
+#fourth-host-box {
+  @extend .host-box;
+  background-image: url("/images/bryan.png");
 }
 
 #events-section {
