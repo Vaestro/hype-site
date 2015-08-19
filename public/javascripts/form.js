@@ -51,6 +51,7 @@ $(function() {
       betaObject.set("city", $('#submitbetarequest input#inputCity').val());
       betaObject.set("instagram", $('#submitbetarequest input#inputInstagram').val());
       betaObject.set("snapchat", $('#submitbetarequest input#inputSnapchat').val());
+      betaObject.set("hearAboutUs", $('#submitbetarequest select#selectAboutUs').val());
       betaObject.save(null, {
         success: function(betaObject) {
           // Execute any logic that should take place after the object is saved.
