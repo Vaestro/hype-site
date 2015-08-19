@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
+var Parse = require('node-parse-api').Parse;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -36,6 +37,18 @@ router.get('/contact', function(req, res, next) {
     title: 'Contact Us'
   });
 });
+
+router.post('/parse', function(req, res, next) {
+  var app = new Parse('ZFX6js0KDbrUJNMKgxIVYMp82oECqIh7PbT4keL0', 'WVlrwfTX48O9LLUp7rtuE9njBJURDrpJWX9tQF8o');
+  app.insert('BetaRequest', req.body , function(err, response) {
+    console.log(response)
+  });
+  res.json({
+    
+  });
+});
+
+
 
 /* POST contact page. */
 router.post('/submitcontact', function(req, res, next) {

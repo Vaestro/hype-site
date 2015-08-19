@@ -41,33 +41,35 @@ $(function() {
     form.parsley().validate();
 
     if (form.parsley().isValid()) {
-      Parse.initialize("ZFX6js0KDbrUJNMKgxIVYMp82oECqIh7PbT4keL0", "G5jbALCek2f6ZNH2CSG70ITV9q19gXvXTuGPq6NQ");
-      var BetaObject = Parse.Object.extend("BetaRequest");
-      var betaObject = new BetaObject();
+      var newBetaRequest = {
+        'firstName': $('#submitbetarequest input#inputFirstName').val(),
+        'lastName': $('#submitbetarequest input#inputLastName').val(),
+        'email': $('#submitbetarequest input#inputEmail').val(),
+        'city': $('#submitbetarequest input#inputCity').val(),
+        'instagram': $('#submitbetarequest input#inputInstagram').val(),
+        'snapchat': $('#submitbetarequest input#inputSnapchat').val()
+      };
 
-      betaObject.set("firstName", $('#submitbetarequest input#inputFirstName').val());
-      betaObject.set("lastName", $('#submitbetarequest input#inputLastName').val());
-      betaObject.set("email", $('#submitbetarequest input#inputEmail').val());
-      betaObject.set("city", $('#submitbetarequest input#inputCity').val());
-      betaObject.set("instagram", $('#submitbetarequest input#inputInstagram').val());
-      betaObject.set("snapchat", $('#submitbetarequest input#inputSnapchat').val());
-      betaObject.save(null, {
-        success: function(betaObject) {
-          // Execute any logic that should take place after the object is saved.
-          $('.modal-wrapper').toggleClass('open');
-          $('#beta-request-form').toggleClass('blur');
-          // Clear the form inputs
-          $('#submitbetarequest input').val('');
+      // Use AJAX to post the object to our submitrequest service
+      $.ajax({
+        type: 'POST',
+        data: newBetaRequest,
+        url: '/parse',
+        dataType: 'JSON',
+        success: function (data, textStatus, jqXHR){
+          console.log(data);
+           $('.modal-wrapper').toggleClass('open');
+           $('#beta-request-form').toggleClass('blur');
+           $('#submitbetarequest input').val('');
         },
-        error: function(betaObject, error) {
-        // Execute any logic that should take place if the save fails.
-        // error is a Parse.Error with an error code and message.
-        alert('Failed to create new object, with error code: ' + error.message);
+        error: function (jqXHR, textStatus, Thrown) {
+          alert('Error' + textStatus + " " + Thrown);
         }
-      // $('.beta-request-form').removeClass('blur');
-      });
+
+      })
     }
-  });
+      $('.beta-request-form').removeClass('blur');
+  }); 
 
   $('.trigger').click(function() {
     $('.modal-wrapper').toggleClass('open');
