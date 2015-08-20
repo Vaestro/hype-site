@@ -47,7 +47,8 @@ $(function() {
         'email': $('#submitbetarequest input#inputEmail').val(),
         'city': $('#submitbetarequest input#inputCity').val(),
         'instagram': $('#submitbetarequest input#inputInstagram').val(),
-        'snapchat': $('#submitbetarequest input#inputSnapchat').val()
+        'snapchat': $('#submitbetarequest input#inputSnapchat').val(),
+        'reference': $('#submitbetarequest select#selectReference').val()
       };
 
       // Use AJAX to post the object to our submitrequest service
