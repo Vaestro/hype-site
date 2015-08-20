@@ -65,11 +65,10 @@ $(function() {
         error: function (jqXHR, textStatus, Thrown) {
           alert('Error' + textStatus + " " + Thrown);
         }
-
-      })
+      });
     }
       $('.beta-request-form').removeClass('blur');
-  }); 
+  });
 
   $('.trigger').click(function() {
     $('.modal-wrapper').toggleClass('open');
