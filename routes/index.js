@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
-var Parse = require('node-parse-api').Parse;
+var parse = require('../parse');
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,8 +20,8 @@ router.get('/betarequest', function(req, res, next) {
 
 /* POST betarequest. */
 router.post('/parsebetarequest', function(req, res, next) {
-  var app = new Parse('ZFX6js0KDbrUJNMKgxIVYMp82oECqIh7PbT4keL0', 'WVlrwfTX48O9LLUp7rtuE9njBJURDrpJWX9tQF8o');
-  app.insert('BetaRequest', req.body , function(err, response) {
+  
+  parse.insert('BetaRequest', req.body , function(err, response) {
     console.log(response)
   });
   res.json({
@@ -37,12 +38,18 @@ router.get('/bookings', function(req, res, next) {
 
 /* POST booking. */
 router.post('/parsebooking', function(req, res, next) {
-  var app = new Parse('ZFX6js0KDbrUJNMKgxIVYMp82oECqIh7PbT4keL0', 'WVlrwfTX48O9LLUp7rtuE9njBJURDrpJWX9tQF8o');
-  app.insert('Booking', req.body , function(err, response) {
-    console.log(response)
-  });
-  res.json({
-
+  console.log(req.body);
+  parse.insert('Booking', req.body , function(err, response) {
+    console.log(err);
+    if (err) {
+      res.json({
+        error: "Something Went Wrong"
+      });
+    } else {
+    res.json({
+        error: null
+    }); 
+    }
   });
 });
 

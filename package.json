@@ -17,6 +17,7 @@
     "nodemailer": "~1.4.0",
     "node-inspector": "~0.12.2",
     "node-parse-api": "~0.3.7 ",
+    "formidable": "1.0.17",
     "mongoose": "latest"
   },
   "devDependencies": {

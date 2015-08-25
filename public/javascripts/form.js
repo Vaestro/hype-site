@@ -86,10 +86,10 @@ $(function() {
         'city': $('#bookings input#inputCity').val(),
         'venues': $('#bookings input#inputVenues').val(),
         'date': $('#bookings input#inputDate').val(),
-        'budget': $('#bookings input#inputBudget').val(),
+        'budget': parseInt($('#bookings input#inputBudget').val()),
         'occasion': $('#bookings input#inputOccasion').val(),
-        'maleCount': $('#bookings input#inputMaleCount').val(),
-        'femaleCount': $('#bookings input#inputFemaleCount').val(),
+        'maleCount': parseInt($('#bookings input#inputMaleCount').val()),
+        'femaleCount': parseInt($('#bookings input#inputFemaleCount').val()),
         'specialRequest': $('#bookings input#inputSpecialRequest').val()
       };
       // Use AJAX to post the object to our submitrequest service
