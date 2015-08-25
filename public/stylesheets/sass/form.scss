@@ -117,3 +117,13 @@ form {
     width: 100%;
   }
 }
+
+#bookings-form {
+  background-image: url("/images/birthday.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: auto;
+  form {
+    margin: 0;
+  }
+}

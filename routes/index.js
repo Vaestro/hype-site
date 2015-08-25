@@ -6,28 +6,43 @@ var Parse = require('node-parse-api').Parse;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'Hypelist'
+    title: 'Never Miss Out - Hypelist'
   });
 });
 
-/* GET beta signup page. */
+/* GET beta access page. */
 router.get('/betarequest', function(req, res, next) {
   res.render('betarequest', {
-    title: 'Hypelist - Beta Access'
+    title: 'Beta Access - Hypelist'
   });
 });
 
-/* GET terms & conditions page. */
-router.get('/terms', function(req, res, next) {
-  res.render('terms', {
-    title: 'Terms & Conditions'
+/* POST betarequest. */
+router.post('/parsebetarequest', function(req, res, next) {
+  var app = new Parse('ZFX6js0KDbrUJNMKgxIVYMp82oECqIh7PbT4keL0', 'WVlrwfTX48O9LLUp7rtuE9njBJURDrpJWX9tQF8o');
+  app.insert('BetaRequest', req.body , function(err, response) {
+    console.log(response)
+  });
+  res.json({
+
   });
 });
 
-/* GET privacy page. */
-router.get('/privacy', function(req, res, next) {
-  res.render('privacy', {
-    title: 'Privacy'
+/* GET bookings page. */
+router.get('/bookings', function(req, res, next) {
+  res.render('bookings', {
+    title: 'Special Event Booking - Hypelist'
+  });
+});
+
+/* POST booking. */
+router.post('/parsebooking', function(req, res, next) {
+  var app = new Parse('ZFX6js0KDbrUJNMKgxIVYMp82oECqIh7PbT4keL0', 'WVlrwfTX48O9LLUp7rtuE9njBJURDrpJWX9tQF8o');
+  app.insert('Booking', req.body , function(err, response) {
+    console.log(response)
+  });
+  res.json({
+
   });
 });
 
@@ -37,18 +52,6 @@ router.get('/contact', function(req, res, next) {
     title: 'Contact Us'
   });
 });
-
-router.post('/parse', function(req, res, next) {
-  var app = new Parse('ZFX6js0KDbrUJNMKgxIVYMp82oECqIh7PbT4keL0', 'WVlrwfTX48O9LLUp7rtuE9njBJURDrpJWX9tQF8o');
-  app.insert('BetaRequest', req.body , function(err, response) {
-    console.log(response)
-  });
-  res.json({
-    
-  });
-});
-
-
 
 /* POST contact page. */
 router.post('/submitcontact', function(req, res, next) {
@@ -88,6 +91,20 @@ router.post('/submitcontact', function(req, res, next) {
       })
     }
   })
+});
+
+/* GET terms & conditions page. */
+router.get('/terms', function(req, res, next) {
+  res.render('terms', {
+    title: 'Terms & Conditions'
+  });
+});
+
+/* GET privacy page. */
+router.get('/privacy', function(req, res, next) {
+  res.render('privacy', {
+    title: 'Privacy Policy'
+  });
 });
 
 module.exports = router;

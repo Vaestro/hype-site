@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  #bookings-form
+    #banner
+      .container
+        .row  
+          .col-lg-12
+            h1 celebrate your special event with hypelist
+            h3 we'll make sure it's one you and your friends won't forget
+    .container
+      form#bookings(data-parsley-validate)
+        .field-wrap
+          label(for="fullname")
+            p Full Name <span class="req">*</span>
+          input(type="text" name="fullname" id="inputFullName" required)
+        .field-wrap
+          label(for="email")
+            p Email <span class="req">*</span>
+          input(type="email" name="email" data-parsley-validate="change" id="inputEmail" required)
+        .field-wrap
+          label(for="city")
+            p City <span class="req">*</span>
+          input(type="text" placeholder="" name="city" id="inputCity" required)
+        .field-wrap
+          label(for="venues")
+            p Top 3 Venues <span class="req">*</span>
+          input(type="text" name="instagram" id="inputVenues" required)
+        .field-wrap
+          label(for="datepicker")
+            p Date <span class="req">*</span>
+          input(name="datepicker" id="inputDate" required)
+        .field-wrap
+          label(for="budget")
+            p Budget <span class="req">*</span>
+          input(type="number" name="budget" id="inputBudget" required)
+        .field-wrap
+          label(for="occasion")
+            p Occasion (e.g. Birthday Party) <span class="req">*</span>
+          input(type="text" name="occasion" id="inputOccasion" required)
+        .top-row
+          .field-wrap
+            label(for="maleCount")
+              p Male count <span class="req">*</span>
+            input(type="number" name="maleCount" id="inputMaleCount" required)
+          .field-wrap
+            label(for="femaleCount")
+              p Female count <span class="req">*</span>
+            input(type="number" name="femaleCount" id="inputFemaleCount" required)
+        .field-wrap
+          label(for="specialRequest")
+            p Special request
+          textarea(type="text" name="specialRequest" id="inputSpecialRequest")
+        input(type="submit" id="btnSubmitBooking" class="button button-block")
+  .modal-wrapper
+    .modal
+      .head
+        a.btn-close.trigger
+      .content
+        h1 Thanks for submitting your special event request
+        h3 You will hear from us soon about your booking

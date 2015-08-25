@@ -25,6 +25,8 @@ $(function() {
     }
   });
 
+  $('#inputDate').pickadate();
+
   // Add Autocomplete to Cities using Google Maps API
   var input = document.getElementById('inputCity');
   var autocomplete = new google.maps.places.Autocomplete(input, {
@@ -55,7 +57,7 @@ $(function() {
       $.ajax({
         type: 'POST',
         data: newBetaRequest,
-        url: '/parse',
+        url: '/parsebetarequest',
         dataType: 'JSON',
         success: function (data, textStatus, jqXHR){
           console.log(data);
@@ -68,7 +70,46 @@ $(function() {
         }
       });
     }
-      $('.beta-request-form').removeClass('blur');
+      $('#beta-request-form').removeClass('blur');
+  });
+
+  // Add Submit button click Event
+  $('#bookings').on('submit', function(e) {
+    e.preventDefault();
+    var form = $(this);
+    form.parsley().validate();
+
+    if (form.parsley().isValid()) {
+      var newBooking = {
+        'fullName': $('#bookings input#inputFullName').val(),
+        'email': $('#bookings input#inputEmail').val(),
+        'city': $('#bookings input#inputCity').val(),
+        'venues': $('#bookings input#inputVenues').val(),
+        'date': $('#bookings input#inputDate').val(),
+        'budget': $('#bookings input#inputBudget').val(),
+        'occasion': $('#bookings input#inputOccasion').val(),
+        'maleCount': $('#bookings input#inputMaleCount').val(),
+        'femaleCount': $('#bookings input#inputFemaleCount').val(),
+        'specialRequest': $('#bookings input#inputSpecialRequest').val()
+      };
+      // Use AJAX to post the object to our submitrequest service
+      $.ajax({
+        type: 'POST',
+        data: newBooking,
+        url: '/parsebooking',
+        dataType: 'JSON',
+        success: function (data, textStatus, jqXHR){
+          console.log(data);
+           $('.modal-wrapper').toggleClass('open');
+           $('#bookings-form').toggleClass('blur');
+           $('#bookings-form input').val('');
+        },
+        error: function (jqXHR, textStatus, Thrown) {
+          alert('Error' + textStatus + " " + Thrown);
+        }
+      });
+    }
+      $('#bookings-form').removeClass('blur');
   });
 
   $('.trigger').click(function() {
