@@ -1,6 +1,18 @@
 @import "media-queries";
 @include max-screen(675px) {
   $screen-width: 420px;
+  .toggle-button {
+    display: inline-block;
+  }
+  .navbar {
+    position: fixed;
+    background-color: rgba(26,31,37,1);
+    padding-bottom: 10px;
+  }
+
+  #logo {
+    height: 35px;
+  }
   body,
   #wrapper {
     height: 100%;
@@ -108,58 +120,10 @@
       text-align: center;
     }
   }
+  form {
+    label {
+      left: auto;
+      transform: translateY(-25px);
+    }
+  }
 }
-
-
-//   #mobile-header {
-//     display: block;
-//     z-index: 1;
-//   }
-//   #home-banner-title {
-//     padding-bottom: 15%;
-//   }
-//
-//   #home-banner-divider {
-//     width: 100%;
-//   }
-//   .hypelist-links {
-//     display: none;
-//   }
-// }
-// @media only screen and (max-height: 675px) {
-//   #banner {
-//     overflow: hidden;
-//   }
-// }
-// @media only screen and (max-width: 420px) {
-//   h1 {
-//     line-height: 40px;
-//     font-size: 36px;
-//     margin: 0 20px 40px;
-//   }
-//   h3 {
-//     font-size: 20px;
-//     font-weight: 400;
-//   }
-//   p {
-//     margin: 0 20px 20px;
-//   }
-//   #banner-title h1 {
-//     line-height: 40px;
-//     font-size: 36px;
-//   }
-//   #banner-message h3 {
-//     font-size: 20px;
-//     font-weight: 400;
-//   }
-//   #banner-footnote h5 {
-//     font-size: 20px;
-//     font-weight: 200;
-//   }
-//   .download-button {
-//     padding-top: 50px;
-//   }
-//   #downloadbtn {
-//     width: 50%;
-//   }
-// }

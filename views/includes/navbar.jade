@@ -1,37 +1,60 @@
 header
-  .navbar.transparent.navbar-inverse.navbar-fixed-top.hr
-    .navbar-brand.logo
-      a(href='/')
-        h3(style="color:white" id='logo') HYPELIST
-        //- img(src= '/images/hypelistlogo.svg' id='logo')
+  .navbar.navbar-inverse.navbar-fixed-top.transparent.hr
     .container-fluid
+      .navbar-brand.logo
+        a(href='/')
+          img(src= '/images/hypelistlogo.svg' id='logo')
+
+          //- img(src= '/images/hypelistlogo.svg' id='logo')
       .navbar-collapse.collapse.pull-right
         ul.nav.navbar-nav.mineul
+          //- li
+          //-   a(href="#") BLOG
+          //- li
+          //-   a(href="#") SUPPORT
+          //- li
+          //-   a(href="#") HOSTS
           li
-            a(href="#") BLOG
-          li
-            a(href="#") SUPPORT
-          li
-            a(href="#") HOSTS
-          li
-            a(href="/bookings") BOOK AN EVENT
-  //- 
-  //-   <div id="mobile-header" class="pull-right">
-  //-       <span>MENU</span>
-  //-       <a id="responsive-menu-button" href="#sidr-main"><i class="fa fa-bars"></i></a>
-  //-   </div>
-  //- 
-  //-   <div id="sidr-navigation">
-  //-       <nav class="sidr-nav">
-  //-           <ul>
-  //-             <li><%= link_to "BLOG", '#' %></li>
-  //-             <li><%= link_to "SUPPORT", support_path %></li>
-  //-             <li><%= link_to "HOSTS", hosts_path %></li>
-  //- 
-  //-              <li><%= link_to "CONTACT", contact_path %></li>
-  //-              <li><%= link_to "PRIVACY", privacy_path %></li>
-  //-              <li><%= link_to "TERMS", terms_path %></li>
-  //-           </ul>
-  //-       </nav>
-  //-   </div>
-  //- </div>
+            a(href="/bookings" id="booking-button") BOOK AN EVENT
+
+      .toggle-button.pull-right
+        a#hamburger-icon
+          span.line.line-1
+          span.line.line-2
+          span.line.line-3
+      //- button.toggle-button
+      //-   h2 button
+nav#menu
+  ul
+    li
+      a(href="#") BLOG
+    li
+      a(href="#") SUPPORT
+    li
+      a(href="#") HOSTS
+    li
+      a(href="/bookings") BOOK AN EVENT
+    li
+      a.beta-access-button(href='/betarequest') BETA ACCESS
+  div#menu-bottom
+    ul
+      li
+        a(href="/contact") contact
+      li
+        a(href="/privacy") privacy
+      li
+        a(href="/terms") terms
+
+    ul.hypelist-links
+      li.social-media-icon
+        a(href= "http://instagram.com/thehypelist").icon.fa.fa-instagram
+          span.label
+            Instagram
+      li.social-media-icon
+        a(href= "https://www.facebook.com/hypelistco").icon.fa.fa-facebook
+          span.label
+            Facebook
+      li.social-media-icon
+        a(href= "http://twitter.com/hypelist_app").icon.fa.fa-twitter
+          span.label 
+            Twitter

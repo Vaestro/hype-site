@@ -18,7 +18,7 @@ app.set('view engine', 'jade');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   var form = new formidable.IncomingForm();
 
   form.parse(req, function(err, fields, files) {
@@ -46,7 +46,7 @@ app.use(
     dest: path.join(__dirname, 'public/stylesheets'),
     debug: true,
     outputStyle: 'compressed',
-    prefix:  '/stylesheets'
+    prefix: '/stylesheets'
   })
 );
 

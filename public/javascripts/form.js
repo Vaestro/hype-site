@@ -59,18 +59,18 @@ $(function() {
         data: newBetaRequest,
         url: '/parsebetarequest',
         dataType: 'JSON',
-        success: function (data, textStatus, jqXHR){
+        success: function(data, textStatus, jqXHR) {
           console.log(data);
-           $('.modal-wrapper').toggleClass('open');
-           $('#beta-request-form').toggleClass('blur');
-           $('#submitbetarequest input').val('');
+          $('.modal-wrapper').toggleClass('open');
+          $('#beta-request-form').toggleClass('blur');
+          $('#submitbetarequest input').val('');
         },
-        error: function (jqXHR, textStatus, Thrown) {
+        error: function(jqXHR, textStatus, Thrown) {
           alert('Error' + textStatus + " " + Thrown);
         }
       });
     }
-      $('#beta-request-form').removeClass('blur');
+    $('#beta-request-form').removeClass('blur');
   });
 
   // Add Submit button click Event
@@ -86,10 +86,10 @@ $(function() {
         'city': $('#bookings input#inputCity').val(),
         'venues': $('#bookings input#inputVenues').val(),
         'date': $('#bookings input#inputDate').val(),
-        'budget': parseInt($('#bookings input#inputBudget').val()),
+        'budget': $('#bookings input#inputBudget').val(),
         'occasion': $('#bookings input#inputOccasion').val(),
-        'maleCount': parseInt($('#bookings input#inputMaleCount').val()),
-        'femaleCount': parseInt($('#bookings input#inputFemaleCount').val()),
+        'maleCount': $('#bookings input#inputMaleCount').val(),
+        'femaleCount': $('#bookings input#inputFemaleCount').val(),
         'specialRequest': $('#bookings input#inputSpecialRequest').val()
       };
       // Use AJAX to post the object to our submitrequest service
@@ -98,18 +98,18 @@ $(function() {
         data: newBooking,
         url: '/parsebooking',
         dataType: 'JSON',
-        success: function (data, textStatus, jqXHR){
+        success: function(data, textStatus, jqXHR) {
           console.log(data);
-           $('.modal-wrapper').toggleClass('open');
-           $('#bookings-form').toggleClass('blur');
-           $('#bookings-form input').val('');
+          $('.modal-wrapper').toggleClass('open');
+          $('#bookings-form').toggleClass('blur');
+          $('#bookings-form input').val('');
         },
-        error: function (jqXHR, textStatus, Thrown) {
+        error: function(jqXHR, textStatus, Thrown) {
           alert('Error' + textStatus + " " + Thrown);
         }
       });
     }
-      $('#bookings-form').removeClass('blur');
+    $('#bookings-form').removeClass('blur');
   });
 
   $('.trigger').click(function() {

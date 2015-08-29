@@ -63,6 +63,17 @@ hr {
   height: 0.1px;
   width: 20%;
 }
+
+li a {
+  color: white;
+  line-height: normal;
+  &:visited, &:hover, &:active{
+    text-decoration:none;
+  }
+  &:hover {
+    color:#2BC497;
+  }
+}
 #terms-section {
   padding-top: 100px;
   li {
@@ -89,7 +100,12 @@ br {
 header {
   text-align: center;
 }
-
+.hypelist-links li {
+  display: inline;
+}
+.slideout-menu {
+  display: none;
+}
 /* centered columns styles */
 .row-centered {
   text-align: center;

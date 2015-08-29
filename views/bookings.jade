@@ -27,9 +27,9 @@ block content
             p Top 3 Venues <span class="req">*</span>
           input(type="text" name="instagram" id="inputVenues" required)
         .field-wrap
-          label(for="datepicker")
+          label(for="date" id="date")
             p Date <span class="req">*</span>
-          input(name="datepicker" id="inputDate" required)
+          input(type="text" name="datepicker" id="inputDate" required)
         .field-wrap
           label(for="budget")
             p Budget <span class="req">*</span>
@@ -42,11 +42,11 @@ block content
           .field-wrap
             label(for="maleCount")
               p Male count <span class="req">*</span>
-            input(type="number" name="maleCount" id="inputMaleCount" required)
+            input(type="number" name="maleCount" data-parsley-max="100" id="inputMaleCount" required)
           .field-wrap
             label(for="femaleCount")
               p Female count <span class="req">*</span>
-            input(type="number" name="femaleCount" id="inputFemaleCount" required)
+            input(type="number" name="femaleCount" data-parsley-max="100" id="inputFemaleCount" required)
         .field-wrap
           label(for="specialRequest")
             p Special request
