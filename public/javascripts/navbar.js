@@ -8,10 +8,11 @@ $(function() {
     'touch': false
   });
   // Toggle button
+  var hamburger = $('#hamburger-icon');
+
   document.querySelector('.toggle-button').addEventListener('click', function() {
-    slideout.toggle();
-    var hamburger = $('#hamburger-icon');
     hamburger.toggleClass('active');
+    slideout.toggle();
     return false;
   });
 })
