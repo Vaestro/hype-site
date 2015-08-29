@@ -5,6 +5,7 @@ $(function() {
     'padding': 256,
     'tolerance': 70,
     'side': 'left',
+    'touch': false
   });
   // Toggle button
   document.querySelector('.toggle-button').addEventListener('click', function() {
