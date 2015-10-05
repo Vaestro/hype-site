@@ -5,18 +5,10 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
     link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
-    if title === "Never Miss Out - Hypelist"
-      link(rel='stylesheet', href='/stylesheets/home.css')
-      link(rel='stylesheet', href='/stylesheets/slick.css')
-    else if title === "Special Event Booking - Hypelist" || title === "Beta Access - Hypelist" || title === "Contact Us"
-      link(rel='stylesheet', href='/stylesheets/form.css')
-      link(rel='stylesheet', href='/stylesheets/default.date.css')
-    else
-      link(rel='stylesheet', href='/stylesheets/master.css')
-
+    link(rel='stylesheet', href='/stylesheets/master.css')
     link(rel='stylesheet', href='/stylesheets/mobile.css')
-    script(src='/javascripts/analytics.js')
-
+    block links
+  
   body
     include ./includes/navbar.jade
     #wrapper
@@ -25,34 +17,7 @@ html
     include ./includes/footer.jade
     
     script(src='//code.jquery.com/jquery-2.1.4.min.js')
+    script(src='/javascripts/analytics.js')
     script(src="//cdnjs.cloudflare.com/ajax/libs/slideout/0.1.9/slideout.min.js")
     script(src="javascripts/navbar.js")
-    if title === "Never Miss Out - Hypelist"
-      //- Preload images so that they are ready when the homepage loads
-      #preload
-        img(src= '/images/hypelistlogo.svg' width="1" height="1" alt="Image 01")
-        img(src= '/images/instagirls.png' width="1" height="1" alt="Image 02")
-        img(src= '/images/dinnerparty.png' width="1" height="1" alt="Image 03")
-        img(src= '/images/lavobrunch.png' width="1" height="1" alt="Image 04")
-        img(src= '/images/eventdiscovery.png' width="1" height="1" alt="Image 05")
-        img(src= '/images/joey.png' width="1" height="1" alt="Image 06")
-        img(src= '/images/fabio.png' width="1" height="1" alt="Image 07")
-        img(src= '/images/giuseppe.png' width="1" height="1" alt="Image 08")
-        img(src= '/images/bryan.png' width="1" height="1" alt="Image 09")
-        img(src= '/images/inviteguestlist.png' width="1" height="1" alt="Image 10")
-        img(src= '/images/tonightreview.png' width="1" height="1" alt="Image 11")
-      //- Import javascripts for homepage
-      script(src='/javascripts/home.js')
-      script(src='/javascripts/slick.js')
-      //- script(src='//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js')
-      //- script(src='//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js')
-      //- script(src='//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js')
-      //- script(src='//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js')
-    else if title === "Special Event Booking - Hypelist" || title === "Beta Access - Hypelist" || title === "Contact Us"
-      //- Import javascripts for Forms
-      script(src='//www.parsecdn.com/js/parse-1.5.0.min.js')
-      script(src='//parsleyjs.org/dist/parsley.min.js')
-      script(src='//maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en')
-      script(src='/javascripts/picker.js')
-      script(src='/javascripts/picker.date.js')
-      script(src='/javascripts/form.js')
+    block scripts

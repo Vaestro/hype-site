@@ -1,5 +1,9 @@
 extends layout
 
+block links
+  link(rel='stylesheet', href='/stylesheets/form.css')
+  link(rel='stylesheet', href='/stylesheets/default.date.css')
+
 block content
   #bookings-form
     #banner
@@ -59,3 +63,11 @@ block content
       .content
         h1 Thanks for submitting your special event request
         h3 You will hear from us soon about your booking
+
+block scripts
+  script(src='//www.parsecdn.com/js/parse-1.5.0.min.js')
+  script(src='//parsleyjs.org/dist/parsley.min.js')
+  script(src='//maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=en')
+  script(src='/javascripts/picker.js')
+  script(src='/javascripts/picker.date.js')
+  script(src='/javascripts/form.js')

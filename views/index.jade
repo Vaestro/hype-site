@@ -1,5 +1,9 @@
 extends layout
 
+block links
+  link(rel='stylesheet', href='/stylesheets/home.css')
+  link(rel='stylesheet', href='/stylesheets/slick.css')
+
 block content
   #banner-wrapper
     #first-banner
@@ -97,3 +101,21 @@ block content
         hr
       .row-centered
         a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
+  
+  //- Preload images so that they are ready when the homepage loads
+  #preload
+    img(src= '/images/hypelistlogo.svg' width="1" height="1" alt="Image 01")
+    img(src= '/images/instagirls.png' width="1" height="1" alt="Image 02")
+    img(src= '/images/dinnerparty.png' width="1" height="1" alt="Image 03")
+    img(src= '/images/lavobrunch.png' width="1" height="1" alt="Image 04")
+    img(src= '/images/eventdiscovery.png' width="1" height="1" alt="Image 05")
+    img(src= '/images/joey.png' width="1" height="1" alt="Image 06")
+    img(src= '/images/fabio.png' width="1" height="1" alt="Image 07")
+    img(src= '/images/giuseppe.png' width="1" height="1" alt="Image 08")
+    img(src= '/images/bryan.png' width="1" height="1" alt="Image 09")
+    img(src= '/images/inviteguestlist.png' width="1" height="1" alt="Image 10")
+    img(src= '/images/tonightreview.png' width="1" height="1" alt="Image 11")
+          
+block scripts
+  script(src='/javascripts/home.js')
+  script(src='/javascripts/slick.js')

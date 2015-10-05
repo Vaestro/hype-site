@@ -20,12 +20,19 @@ router.get('/betarequest', function(req, res, next) {
 
 /* POST betarequest. */
 router.post('/parsebetarequest', function(req, res, next) {
-  
+
   parse.insert('BetaRequest', req.body , function(err, response) {
     console.log(response)
   });
   res.json({
 
+  });
+});
+
+/* GET hosts application page. */
+router.get('/host', function(req, res, next) {
+  res.render('host', {
+    title: 'Become a Host'
   });
 });
 
@@ -48,7 +55,7 @@ router.post('/parsebooking', function(req, res, next) {
     } else {
     res.json({
         error: null
-    }); 
+    });
     }
   });
 });

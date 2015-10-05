@@ -1,18 +1,10 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 @import url("http://fonts.googleapis.com/css?family=Raleway:400,500,700");
+@import "styleguide";
 @import "navbar";
 @import "footer";
 
 // GLOBAL
-$primary-font-stack: "Open Sans", Helvetica, sans-serif;
-$secondary-font-stack: "Raleway", sans-serif;
-$primary-black-color: #141414;
-$secondary-black-color: #1a1f25;
-$accent-green-color: #2bc497;
-$accent-green-color-dark: darken($accent-green-color,5%);
-$primary-text-color: #f8f8f8;
-$tertiary-font-color: #808080;
-$banner-word-padding: 25px;
 html {
   background-color: #000;
   overflow-x: hidden;
@@ -81,6 +73,10 @@ li a {
   }
 }
 #privacy-section {
+  padding-top: 100px;
+}
+
+#host-form {
   padding-top: 100px;
 }
 
