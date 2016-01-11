@@ -1,0 +1,60 @@
+footer {
+  background-color: #000;
+  text-align: center;
+  padding: 50px;
+  li {
+    list-style: none;
+    a {
+      color: white;
+    }
+  }
+
+  .download-button {
+    padding: 25px 0;
+  }
+
+  .hypelist-links {
+    padding: 5px 0 10px 0;
+  }
+
+  .social-media-icon {
+    display: inline;
+  }
+
+  .icon {
+    font-size: 2em;
+    &:hover, &:active {
+      position:relative;
+      transition:0.5s color ease;
+      text-decoration:none;
+      color:#2BC497;
+    }
+  }
+
+  .wrapper {
+    margin:1em 0;
+    a {
+      line-height: normal;
+      &:visited, &:hover, &:active {
+        position:relative;
+        transition:0.5s color ease;
+        text-decoration:none;
+        color:#2BC497;
+        font-size:1em;
+      &:hover {
+        color:#2BC497;
+        }
+      }
+
+    }
+  }
+
+  .footer-left {
+    text-align: right;
+    padding-top: 10px;
+  }
+
+  .footer-right {
+    text-align: left;
+  }
+}
