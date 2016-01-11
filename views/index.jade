@@ -2,7 +2,6 @@ extends layout
 
 block links
   link(rel='stylesheet', href='/stylesheets/home.css')
-  link(rel='stylesheet', href='/stylesheets/slick.css')
 
 block content
   #banner-wrapper
@@ -34,15 +33,6 @@ block content
         .col-lg-6.col-md-6.col-sm-6
           img.img-responsive(src= '/images/eventdiscovery.png')  
       
-  //- #select-host-section
-  //-   .container
-  //-     .row
-  //-       .col-lg-6
-  //-         .message
-  //-           h3 Select a host
-  //-           p Our hosts are vetted professionals who know the venues in and out. They'll handle the bouncers, make sure you breeze through the line and put you at their table with free drinks. 
-  //-       .col-lg-6
-  //-         img.img-responsive(src= '/images/selecthost.png')
   #hosts-section
     .container-fluid
       .section-title
@@ -77,4 +67,3 @@ block content
 
 block scripts
   script(src='/javascripts/home.js')
-  script(src='/javascripts/slick.js')

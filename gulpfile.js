@@ -1,54 +1,69 @@
-// grab our packages
 var gulp = require('gulp');
-var gutil = require('gulp-util')
+var nodemon = require('gulp-nodemon');
+var webpack = require('webpack-stream');
+var del = require('del');
+
 var jshint = require('gulp-jshint');
-var sourcemaps = require('gulp-sourcemaps');
-var concat = require('gulp-concat');
-var autoprefixer = require('gulp-autoprefixer');
+// define the default task and add the watch task to it
+gulp.task('default', ['clean', 'webpack', 'start']);
 
-input = {
-    'sass': 'sources/scss/**/*.scss',
-    'javascript': 'public/javascripts/**/*.js',
-    'stylesheet': 'public/stylesheets/**/*.css',
-    'vendorjs': 'public/assets/javascript/vendor/**/*.js'
-  },
-
-  output = {
-    'stylesheets': 'public/assets/stylesheets',
-    'javascript': 'public/assets/javascript'
-  };
-
-// run the watch task when gulp is called without arguments
-gulp.task('default', ['watch']);
-
-// run javascript through jshint
-gulp.task('jshint', function() {
-  return gulp.src(input.javascript)
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
+gulp.task('clean', function() {
+  return del([
+    '/build'
+  ]);
 });
 
-// concat javascript files, minify if --type production
-gulp.task('build-js', function() {
-  return gulp.src(input.javascript)
-    .pipe(sourcemaps.init())
-    .pipe(concat('bundle.js'))
-    // only uglify if gulp is ran with '--type production'
-    .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(output.javascript));
-});
-
-// prefix css files
-gulp.task('autoprefixer', function() {
-  return gulp.src(input.stylesheet)
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
+gulp.task('webpack', function() {
+  return gulp.src('app/client.js')
+    .pipe(webpack({
+      resolve: {
+        extensions: ["", ".js", ".jsx"]
+      },
+      output: {
+        filename: 'client.js'
+      },
+      // module: {
+      //   loaders: [{
+      //     test: /\.css$/,
+      //     loader: 'style!css'
+      //   }, {
+      //     test: /\.sass$/,
+      //     loader: ExtractTextPlugin.extract("style-loader",
+      //       "css-loader!sass-loader")
+      //   }, {
+      //     test: /\.jsx$/,
+      //     loader: "jsx-loader"
+      //   }],
+      // },
+      // plugins: [new ExtractTextPlugin("client.css")],
+      stats: {
+        colors: true
+      },
+      devtool: "source-map",
+      watch: true,
+      keepalive: true
     }))
-    .pipe(gulp.dest('dist'));
-});
-// Watch these files for changes and run the task on update
-gulp.task('watch', function() {
-  gulp.watch(input.javascript, ['jshint', 'build-js']);
+    .pipe(gulp.dest('build/'));
+})
+
+// configure the jshint task
+gulp.task('lint', function() {
+  gulp.src('./**/*.js')
+    .pipe(jshint())
+})
+
+gulp.task('start', function() {
+  nodemon({
+      script: 'app.js',
+      ext: "js, jsx",
+      options: {
+        ignore: ["build/**"],
+      },
+      env: {
+        'NODE_ENV': 'development'
+      }
+    })
+    .on('restart', function() {
+      console.log('restarted!')
+    })
 });
