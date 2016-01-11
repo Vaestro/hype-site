@@ -8,31 +8,21 @@ block content
   #banner-wrapper
     #first-banner
       .container
-        h1.banner-title There's always a party
-        h3.banner-message Don't miss out
+        h1.banner-title HYPE
+        h2.banner-subtitle NIGHTLIFE
+        hr.banner-hr
+        h3.banner-message The app that gets you in the best party tonight
         .banner-button
-          a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
-    #second-banner
-      .container
-        h3.banner-message The only list you need to be on for the most exclusive
-        h1.banner-title Brunch Parties
-        .banner-button
-          a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
-    #third-banner
-      .container
-        h3.banner-message The only list you need to be on for the most exclusive
-        h1.banner-title Dinner Pregames
-        .banner-button
-          a.beta-access-button(href='/betarequest') REQUEST ACCESS TO THE BETA
+          a.beta-access-button(href='/betarequest') Tell me more
         
   #explanation-section
     .container
-      .section-title
-        h3 Not just another night out
-        hr
-      .row-centered
-        .col-lg-6.col-centered
-          p No more waiting in line, arguing with the bouncer, spending more than you should on drinks, and awkwardly standing in the corner with your wingman from high school. 
+      #explanation-wrapper
+        .section-title
+          h3 Not just another night out
+        .row-centered
+          .col-lg-6.col-centered
+            p No more waiting in line. arguing with the bouncer. spending more than you should on drinks. and standing in the corner with strangers you barely like.
             
   #events-section
     .container
@@ -56,44 +46,16 @@ block content
   #hosts-section
     .container-fluid
       .section-title
-        h3 Select a host
-        p Our hosts are vetted professionals who know the venues in and out. They'll make sure you breeze through the line and get you free bottle service at their vip table. 
-        //- hr
-      //-   h4 Our featured hosts: 
-      //- .row.row-centered
-      //-   .col-lg-3.col-centered
-      //-     #first-host-box
-      //-       h1 Bryan
-      //-   .col-lg-3.col-centered
-      //-     #second-host-box
-      //-       h1 Fabio
-      //-   .col-lg-3.col-centered
-      //-     #third-host-box
-      //-       h1 Giuseppe
-      //-   .col-lg-3.col-centered
-      //-     #fourth-host-box
-      //-       h1 Joey
-            
+        h3 Get treated
+        hr
+        p When you’re on our guestlist, you’ll be taken care of by a host. Our hosts are vetted professionals who know the venues in and out. They'll make sure you breeze through the line take care of your every need.
             
   #invite-guests-section
-    .container
-      .row
-        .col-lg-6.col-md-6.col-sm-6
-          .message
-            h3 Invite your friends
-            p Be the one who always knows about the hottest parties around. Add your friends to your guestlist and make sure your nights are always hype.
-        .col-lg-6.col-md-6.col-sm-6
-          img.img-responsive(src= '/images/inviteguestlist.png')        
-  #party-section
-    .container
-      .row
-        .col-lg-6.col-md-6.col-sm-6
-          img.img-responsive(src= '/images/tonightreview.png') 
-        .col-lg-6.col-md-6.col-sm-6
-          .message
-            h3 Get ready for the party
-            p Dress appropriately and meet your host on time. Ask your host if you have any questions. They'll help you out to make sure your night goes smoothly. 
-            
+    .container-fluid
+      .section-title
+        h3 Make it Hype
+        p Parties are better with friends. The more people you bring with you to the party, the better your night gets. Not only do you get to enjoy experiences with your friends, you’ll get rewarded too.
+
   #beta-section
     .container
       .section-title
@@ -104,18 +66,15 @@ block content
   
   //- Preload images so that they are ready when the homepage loads
   #preload
-    img(src= '/images/hypelistlogo.svg' width="1" height="1" alt="Image 01")
-    img(src= '/images/instagirls.png' width="1" height="1" alt="Image 02")
-    img(src= '/images/dinnerparty.png' width="1" height="1" alt="Image 03")
-    img(src= '/images/lavobrunch.png' width="1" height="1" alt="Image 04")
-    img(src= '/images/eventdiscovery.png' width="1" height="1" alt="Image 05")
-    img(src= '/images/joey.png' width="1" height="1" alt="Image 06")
-    img(src= '/images/fabio.png' width="1" height="1" alt="Image 07")
-    img(src= '/images/giuseppe.png' width="1" height="1" alt="Image 08")
-    img(src= '/images/bryan.png' width="1" height="1" alt="Image 09")
-    img(src= '/images/inviteguestlist.png' width="1" height="1" alt="Image 10")
-    img(src= '/images/tonightreview.png' width="1" height="1" alt="Image 11")
-          
+    img(src= '/images/hypelistlogo.png' width="1" height="1" alt="Image 01")
+    img(src= '/images/welcomebackground.png' width="1" height="1" alt="Image 02")
+    img(src= '/images/eventdiscovery.png' width="1" height="1" alt="Image 03")
+    img(src= '/images/inviteguestlist.png' width="1" height="1" alt="Image 04")
+    img(src= '/images/tonightreview.png' width="1" height="1" alt="Image 05")
+    img(src= '/images/discoverybackground.png' width="1" height="1" alt="Image 06")
+    img(src= '/images/hostbackground.png' width="1" height="1" alt="Image 07")
+    img(src= '/images/invitebackground.png' width="1" height="1" alt="Image 08")
+
 block scripts
   script(src='/javascripts/home.js')
   script(src='/javascripts/slick.js')

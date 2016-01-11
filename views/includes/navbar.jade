@@ -3,20 +3,27 @@ header
     .container-fluid
       .navbar-brand.logo
         a(href='/')
-          img(src= '/images/hypelistlogo.svg' id='logo')
+          img(src= '/images/hypelistlogo.png' id='logo')
 
           //- img(src= '/images/hypelistlogo.svg' id='logo')
-      .navbar-collapse.collapse.pull-right
-        ul.nav.navbar-nav.mineul
-          //- li
-          //-   a(href="#") BLOG
-          //- li
-          //-   a(href="#") SUPPORT
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav.mineul.navbar-center
+          li
+            a(href="/contact") CONTACT
           li
             a(href="/host") HOSTS
           li
-            a(href="/bookings" id="booking-button") BOOK AN EVENT
-
+            a(href="/bookings" id="booking-button") PRIVATE EVENTS
+            
+        ul.nav.navbar-nav.navbar-right
+          li.social-media-icon
+            a(href= "http://instagram.com/thehypelist").icon.fa.fa-instagram
+              span.label
+                Instagram
+          li.social-media-icon
+            a(href= "https://www.facebook.com/hypelistco").icon.fa.fa-facebook
+              span.label
+                Facebook
       .toggle-button.pull-right
         a#hamburger-icon
           span.line.line-1

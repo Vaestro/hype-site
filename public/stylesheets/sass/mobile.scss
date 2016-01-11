@@ -16,82 +16,72 @@
   body,
   #wrapper {
     height: 100%;
-  }
-  #banner-wrapper {
-    height: 100vh;
-    .banner-title {
-      font-size: 3em;
-      padding: 0 0 25px 0;
-    }
-    .banner-message {
-      font-size: 16px;
-     font-weight: 400;
-     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-     padding-bottom: 50px;
-    }
-    #first-banner {
+    #banner-wrapper {
       height: 100vh;
-      padding: 150px 0 200px;
+      .banner-title {
+        font-size: 3em;
+        padding: 0 0 0 0;
+      }
+      .banner-subtitle {
+        font-size: 1.15em;
+        padding: 0 0 25px 0;
+      }
+      .banner-message {
+        font-size: 16px;
+        font-weight: 400;
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+        padding-bottom: 50px;
+        width: 66%;
+      }
+      #first-banner {
+        height: 100vh;
+        padding: 150px 0 200px;
+      }
     }
-    #second-banner {
-      height: 100vh;
-      padding: 150px 0 200px;
+    #explanation-section {
+      padding: 25px 0 50px 0;
+      #explanation-wrapper {
+        width: 100%;
+        h3 {
+          font-size: 20px;
+          font-weight: 400;
+          text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+        }
+        p {
+          font-weight: 100;
+          padding: 25px 5px 50px 5px;
+        };
+      }
     }
-    #third-banner {
-      height: 100vh;
-      padding: 150px 0 200px;
+    #events-section {
+      padding-top: 0;
+      .message {
+        text-align: center;
+        padding: 25px 0;
+        h3 {
+          font-size: 1.5em;
+        }
+      }
     }
-  }
-
-  #events-section {
-    padding-top: 0;
-    .message {
-      text-align: center;
-      padding: 25px 0;
-      h3 {
-        font-size: 1.5em;
+    #invite-guests-section {
+      padding: 0px;
+      .section-title {
+        max-width: 80%;
+        padding: 25px 0;
+      }
+    }
+    #hosts-section {
+      width: 100%;
+      padding-top: 25px;
+      .section-title {
+        width: 100%;
       }
     }
   }
-  .event-box {
-    width: $screen-width * 0.8;
-    height: $screen-width * 0.8;
-    margin: 10px 0;
-  }
-  #first-event-box,
-  #second-event-box,
-  #third-event-box {
-    @extend .event-box;
-  }
-  #explanation-section {
-    padding-top: 25px;
-    h3 {
-      font-size: 20px;
-      font-weight: 400;
-      text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    }
-    p {
-      font-weight: 100;
-      padding: 10px 5px;
-    };
-  }
-  #invite-guests-section {
-    padding: 0px;
-    .message {
-      padding: 25px 0;
-    }
-  }
-  #hosts-section {
-    padding-top: 25px;
-  }
-  .host-box {
-    margin: 10px 0;
-  }
-  #first-host-box,
-  #second-host-box,
-  #third-host-box {
-    @extend .host-box;
-  }
+
+
+
+
   .download-button {
     #downloadbtn {
       width: 66%;

@@ -7,7 +7,7 @@ var parse = require('../parse');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'Never Miss Out - Hypelist'
+    title: 'Hype Nightlife'
   });
 });
 
