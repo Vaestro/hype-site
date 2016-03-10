@@ -27,7 +27,7 @@ footer {
       position:relative;
       transition:0.5s color ease;
       text-decoration:none;
-      color:#2BC497;
+      color:rgba(197,179,88,1);
     }
   }
 
@@ -39,10 +39,10 @@ footer {
         position:relative;
         transition:0.5s color ease;
         text-decoration:none;
-        color:#2BC497;
+        color:rgba(197,179,88,1);
         font-size:1em;
       &:hover {
-        color:#2BC497;
+        color:rgba(197,179,88,1)7;
         }
       }
 
@@ -50,6 +50,9 @@ footer {
   }
 
   .footer-left {
+    h5 {
+      padding-right: 25px;
+    }
     text-align: right;
     padding-top: 10px;
   }

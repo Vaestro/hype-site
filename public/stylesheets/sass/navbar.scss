@@ -42,7 +42,7 @@
   -webkit-overflow-scrolling: touch;
   display: none;
   padding-top: 100px;
-  background-color: #1A1F25;
+  background-color: #000;
   li {
     padding: 10px 25px;
   }
@@ -51,7 +51,7 @@
     font-size: 20px;
   }
   .beta-access-button {
-    background: #2bc497;
+    background: rgba(197,179,88,1);
     font-size: 16px;
     padding: 10px;
   }

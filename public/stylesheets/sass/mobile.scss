@@ -17,25 +17,25 @@
   #wrapper {
     height: 100%;
     #banner-wrapper {
-      height: 100vh;
+      height: 850px;
       .banner-title {
         font-size: 3em;
-        padding: 0 0 0 0;
       }
       .banner-subtitle {
+        padding-top: 10px;
         font-size: 1.15em;
-        padding: 0 0 25px 0;
       }
       .banner-message {
         font-size: 16px;
         font-weight: 400;
         text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-        padding-bottom: 50px;
-        width: 66%;
       }
       #first-banner {
-        height: 100vh;
-        padding: 150px 0 200px;
+        height: 850px;
+        padding: 75px 15px;
+      }
+      .discovery-phone {
+        padding-top: 50px;
       }
     }
     #explanation-section {

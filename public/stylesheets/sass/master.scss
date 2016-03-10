@@ -27,7 +27,6 @@ h4,
 h5,
 h6 {
   font-family: $secondary-font-stack;
-  text-transform: uppercase;
   letter-spacing: 0.225em;
 }
 h1 {
@@ -63,7 +62,7 @@ li a {
     text-decoration:none;
   }
   &:hover {
-    color:#2BC497;
+    color:rgba(197,179,88,1);
   }
 }
 #terms-section {
