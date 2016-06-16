@@ -1,10 +1,15 @@
 doctype html
-html
+html(lang='en')
   head
     title= title
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='author', content='')
     link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/less-css/toolkit-startup.css')
     link(rel='stylesheet', href='/stylesheets/master.css')
     link(rel='stylesheet', href='/stylesheets/mobile.css')
     script(src="//load.sumome.com/" data-sumo-site-id="0316b39fd97b4b858ff1cac6124b11b50d6b859f5c92906978c18e3db6e1f046" async="async")
@@ -20,5 +25,8 @@ html
     script(src='//code.jquery.com/jquery-2.1.4.min.js')
     script(src='/javascripts/analytics.js')
     script(src="//cdnjs.cloudflare.com/ajax/libs/slideout/0.1.9/slideout.min.js")
+    script(src="//www.parsecdn.com/js/parse-latest.js")
     script(src="javascripts/navbar.js")
+    script(src='javascripts/toolkit.js')
+    script(src='javascripts/application.js')
     block scripts

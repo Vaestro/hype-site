@@ -12,6 +12,13 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET beta access page. */
+router.get('/signup', function(req, res, next) {
+  res.render('registration', {
+    title: 'Hype - Registration'
+  });
+});
+
+/* GET beta access page. */
 router.get('/betarequest', function(req, res, next) {
   res.render('betarequest', {
     title: 'Beta Access - Hypelist'

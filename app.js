@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var formidable = require('formidable');
 var sassMiddleware = require('node-sass-middleware');
-
+var expressLess = require('express-less');
 var routes = require('./routes/index');
 
 var app = express();
@@ -49,6 +49,8 @@ app.use(
     prefix: '/stylesheets'
   })
 );
+
+app.use('/less-css', expressLess(__dirname + '/public/stylesheets/less', { compress: true }));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
