@@ -4,13 +4,25 @@ block links
 
 block content
   #stage.stage
-    .block.block-inverse.block-fill-height.text-center
+    #registration-step-1.block.block-inverse.block-fill-height.text-center
       .block-lg-middle
         h1.block-title Sign Up
         p.lead.text-muted
           | You're on your way to a great night out
-        button#facebook-button.btn.btn-lg.btn-primary
-          | Connect with Facebook 
-          
+        form#facebook-login(role='form', action='/login', method='post')
+          button.btn.btn-lg.btn-primary
+            | Connect with Facebook 
+    #registration-step-2.block.block-inverse.block-fill-height.text-center(style='display:hidden;')
+      .block-xs-middle
+        .container
+          h1.block-title PHONE NUMBER & EMAIL
+          p.lead.text-muted
+            | We use your phone number to find invites from your friends. And your email to send you your tickets + receipts.
+          form
+            input#email-input.form-control.m-b(placeholder='email address')
+            input#phoneNumber-input.form-control.m-b(placeholder='phone number')
+            button#submit.btn.btn-primary.m-b Continue
+
+
 block scripts
   script(src='javascripts/login-service.js')
