@@ -72,3 +72,20 @@
 .form-group.focused .form-control::-webkit-input-placeholder {
     color: #000;
 }
+
+#sidebar {
+  background:#000;
+  padding-top: 100px;
+  li {
+    padding: 10px 25px;
+  }
+  li a {
+    font-weight: 400;
+    font-size: 20px;
+    color:white;
+  }
+
+  .hypelist-links {
+    padding-top: 25px;
+  }
+}
