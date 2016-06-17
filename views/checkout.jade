@@ -3,19 +3,25 @@ extends layout
 block links
 
 block content
-  - var location = event.get('location')
-  - var imageFile = location.get('image');
-  - var imageURL = imageFile.url();
-  .block.block-inverse.text-center
-    .panel.panel-bold(style='background-image: url(#{imageURL}); background-size:cover;')
-      .panel-body.p-b-lg.p-t-lg
-    h1.m-t-lg.p-t-lg #{location.get('name')}
-    button#btn.btn-lg.btn-primary
-      | Checkout
-    .row
-      .col-md-6
-        a(href='/#{event.id.toString()}/#{admissionOption.id.toString()}/checkout') 
-          p #{admissionOption.get('name')}
-    
+    - var location = event.get('location')
+    - var imageFile = location.get('image');
+    - var imageURL = imageFile.url();
+    - var price = admissionOption.get('price');
+
+    .block.block-inverse.text-center
+      .panel.panel-bold(style='background-image: url(#{imageURL}); background-size:cover;')
+          .panel-body.p-b-lg.p-t-lg
+      h1.m-t-lg.p-t-lg #{location.get('name')} | #{admissionOption.get('name')}
+        .container
+          .row.row-centered
+            .col-md-6.col-centered
+              p#form-errors
+                if price == '0'
+                  include ./includes/free-checkout-form.jade
+                else 
+                  include ./includes/checkout-form.jade
+
+
 block scripts
-  script(src='javascripts/login-service.js')
+  script(src="//js.stripe.com/v2/")
+  script(src='/javascripts/checkout.js')

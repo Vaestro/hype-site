@@ -7,16 +7,19 @@ block content
   - var imageFile = location.get('image');
   - var imageURL = imageFile.url();
   .block.block-inverse.text-center
-    .panel.panel-bold(style='background-image: url(#{imageURL}); background-size:cover;')
-      .panel-body.p-b-lg.p-t-lg
-    h1.m-t-lg.p-t-lg #{location.get('name')}
-    button#btn.btn-lg.btn-primary
-      | Checkout
-    each admissionOption in admissionOptions.length ? admissionOptions : ['There are no admissionOptions']
-      .row
-        .col-md-6
-          a(href='/event/#{event.id.toString()}/#{admissionOption.id.toString()}/checkout') 
-            p #{admissionOption.get('name')}
-      
-block scripts
-  script(src='javascripts/login-service.js')
+    .container 
+      //- .panel.panel-bold(style='background-image: url(#{imageURL}); background-size:cover; background-position:center;')
+      //-   .panel-body.p-b-lg.p-t-lg
+      div.inline-block
+        img.img-responsive(src="#{imageURL}")
+
+      h1.m-b-lg #{location.get('name')}
+      each admissionOption in admissionOptions.length ? admissionOptions : ['There are no admissionOptions']
+        .row
+          .col-md-12
+            a(href='/event/#{event.id.toString()}/#{admissionOption.id.toString()}/checkout') 
+              .panel.panel-bold.panel-danger
+                .panel-body.p-b-sm.p-t-sm
+                  h3.m-y-0 TICKET | #{admissionOption.get('name')} - 
+                    span
+                      $#{admissionOption.get('price')}

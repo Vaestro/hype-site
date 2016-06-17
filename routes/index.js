@@ -5,6 +5,7 @@ var Parse = require('parse/node');
 var Event = Parse.Object.extend("Event");
 var AdmissionOption = Parse.Object.extend("AdmissionOption");
 var Location = Parse.Object.extend("Location");
+var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 Parse.initialize("5t3F1S3wKnVGIKHob1Qj0Je3sygnFiwqAu6PP400",
     "NyZCP6peg3Si9VwUYLZdCRMAj62xoNBxOMOgv76M", "NUwTuaL9aqcGkgFc0MUrng4SdQz9RPDcEudMvUGZ");
@@ -21,6 +22,30 @@ router.get('/signup', function(req, res, next) {
     res.render('registration', {
         title: 'Hype - Registration'
 
+    });
+});
+
+router.post('/fblogin', function(req, res, next) {
+
+    // var defaultLanguage = req.app.get('defaultLanguage');
+    var sessionToken = req.body.sessionToken;
+    console.log("server -- user.sessionToken = " + sessionToken);
+
+    // var user = new Parse.User();
+    // console.log("server -- user is = " + user);
+
+    console.log(JSON.stringify(req.user.become(sessionToken)));
+
+    req.user.become(sessionToken).then(function(user) {
+
+        console.log("exports.fblogin -- become -- success");
+        // The current user is now set to user.
+        return res.redirect('/');
+
+    }, function(error) {
+        // The token could not be validated.
+        console.log("exports.fblogin -- become -- error = " + error);
+        return next(error);
     });
 });
 
@@ -114,6 +139,49 @@ router.get('/event/:eventID/:admissionOptionID/checkout', function(req, res, nex
     });
 });
 
+router.post('/charge', function(req, res, next) {
+    var stripeToken = req.body.stripeToken;
+    stripe.customers.create({
+
+        source: stripeToken,
+        description: req.body.email
+    }).then(function(customer) {
+
+        console.log('customer ' + JSON.stringify(customer));
+
+        return stripe.charges.create({
+            amount: req.body.price * 100,
+            currency: "usd",
+            customer: customer.id
+        });
+    }).then(function(charge) {
+
+        console.log('successful payment ' + JSON.stringify(charge));
+
+        var data = {
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber,
+            admissionOptionId: req.body.admissionOptionID,
+            eventId: req.body.eventID,
+            customerName: req.body.name
+        };
+
+        console.log('data is ' + JSON.stringify(data));
+
+        return Parse.Cloud.run('hypeLaunchPartyPurchase', data);
+    }).then(function(response) {
+        return res.render('checkout-success', {
+            title: 'Thank you!'
+        });
+    }, function(error) {
+        return next(error);
+    });
+});
+
+// router.post('/free-charge', function(req, res, next) {
+//
+// });
+
 /* GET beta access page. */
 router.get('/betarequest', function(req, res, next) {
     res.render('betarequest', {
@@ -125,7 +193,7 @@ router.get('/betarequest', function(req, res, next) {
 router.post('/parsebetarequest', function(req, res, next) {
 
     parse.insert('BetaRequest', req.body, function(err, response) {
-        console.log(response)
+        console.log(response);
     });
     res.json({
 

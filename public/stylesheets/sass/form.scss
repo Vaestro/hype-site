@@ -1,134 +1,189 @@
 @import "styleguide";
-@import "modal";
+// @import "modal";
 
-#banner {
-  padding: 100px 100px 0;
+/* --- material floating label --- */
+
+.form-group {
+    display: flex;
+    height: 55px;
+    background:black;
+
 }
-form {
-  padding: 50px;
-  max-width: 700px;
-  margin: 10px auto;
-  a {
-    text-decoration: none;
-    color: $accent-green-color;
-    transition: 0.5s ease;
-    &:hover {
-      color: $accent-green-color-dark;
-    }
-  }
-  label {
-    position: absolute;
-    transform: translateY(10px);
-    left: 13px;
-    color: rgba($primary-text-color,.5);
-    transition: all 0.25s ease;
-    -webkit-backface-visibility: hidden;
+
+input[type="text"]{
+color:white !important
+}
+
+.control-label {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.4;
     pointer-events: none;
-    font-size: 22px;
-    .req {
-      margin: 2px;
-      color: $accent-green-color;
-    };
-  }
-  label#selectReference {
-    left: auto;
-    transform: translateY(-25px);
-  }
-
-  label#date {
-    left: auto;
-    transform: translateY(-25px);
-  }
-  label.active {
-    transform: translateY(-25px);
-    left: 2px;
-    font-size: 14px;
-    .req {
-      opacity: 0;
-    }
-  }
-  label.highlight {
-    color: $primary-text-color;
-  }
-  input,
-  textarea, select {
-    font-size: 22px;
-    display: block;
-    width: 100%;
-    height: 100%;
-    padding: 5px 10px;
-    background: none;
-    background-image: none;
-    border: 1px solid $tertiary-font-color;
-    color: $primary-text-color;
-    border-radius: 0;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    &:focus {
-      outline: 0;
-      border-color: $accent-green-color;
-    }
-  }
-  select {
-    font-size: 18px;
-  }
-  textarea {
-    border: 2px solid $tertiary-font-color;
-    resize: vertical;
-  }
-  .parsley-required,
-  .parsley-type, .parsley-errors-list {
-    list-style: none;
-    color: $accent-green-color;
-    padding-top: 10px;
-  }
-  .field-wrap {
-    position: relative;
-    margin-bottom: 40px;
-  }
-  .top-row {
-    &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-    > div {
-      float: left;
-      width: 48%;
-      margin-right: 4%;
-      &:last-child {
-        margin: 0;
-      }
-    }
-  }
-  .button {
-    border: 0;
-    outline: none;
-    border-radius: 0;
-    padding: 15px 0;
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    background: $accent-green-color;
-    color: $primary-text-color;
-    transition: all.5s ease;
-    -webkit-appearance: none;
-    &:hover,
-    &:focus {
-      background: $accent-green-color-dark;
-    }
-  }
-  .button-block {
-    display: block;
-    width: 100%;
-  }
+    position: absolute;
+    transform: translate3d(0, 22px, 0) scale(1);
+    transform-origin: left top;
+    transition: 240ms;
 }
 
-#bookings-form {
-  background-image: url("/images/birthday.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: auto;
-  form {
-    margin: 0;
-  }
+.form-group.focused .control-label {
+    opacity: 1;
+    transform: scale(0.75);
 }
+
+.form-control {
+    align-self: flex-end;
+    background:black;
+    border:0;
+     border-bottom: 2px solid white;
+     border-radius: 0px;
+}
+
+.form-control:focus {
+  background:black;
+  border:0;
+  border-bottom: 2px solid $accent-color;
+  border-radius: 0px;
+}
+.form-control::-webkit-input-placeholder {
+    color: transparent;
+    transition: 240ms;
+}
+
+.form-control:focus::-webkit-input-placeholder {
+    transition: none;
+}
+
+.form-group.focused .form-control::-webkit-input-placeholder {
+    color: #000;
+}
+// #banner {
+//   padding: 100px 100px 0;
+// }
+// form {
+//   padding: 50px;
+//   max-width: 700px;
+//   margin: 10px auto;
+//   a {
+//     text-decoration: none;
+//     color: $accent-color;
+//     transition: 0.5s ease;
+//     &:hover {
+//       color: $accent-color-dark;
+//     }
+//   }
+//   label {
+//     position: absolute;
+//     transform: translateY(10px);
+//     left: 13px;
+//     color: rgba($primary-text-color,.5);
+//     transition: all 0.25s ease;
+//     -webkit-backface-visibility: hidden;
+//     pointer-events: none;
+//     font-size: 22px;
+//     .req {
+//       margin: 2px;
+//       color: $accent-color;
+//     };
+//   }
+//   label#selectReference {
+//     left: auto;
+//     transform: translateY(-25px);
+//   }
+//
+//   label#date {
+//     left: auto;
+//     transform: translateY(-25px);
+//   }
+//   label.active {
+//     transform: translateY(-25px);
+//     left: 2px;
+//     font-size: 14px;
+//     .req {
+//       opacity: 0;
+//     }
+//   }
+//   label.highlight {
+//     color: $primary-text-color;
+//   }
+//   input,
+//   textarea, select {
+//     font-size: 22px;
+//     display: block;
+//     width: 100%;
+//     height: 100%;
+//     padding: 5px 10px;
+//     background: none;
+//     background-image: none;
+//     border: 1px solid $tertiary-font-color;
+//     color: $primary-text-color;
+//     border-radius: 0;
+//     transition: border-color 0.25s ease, box-shadow 0.25s ease;
+//     &:focus {
+//       outline: 0;
+//       border-color: $accent-color;
+//     }
+//   }
+//   select {
+//     font-size: 18px;
+//   }
+//   textarea {
+//     border: 2px solid $tertiary-font-color;
+//     resize: vertical;
+//   }
+//   .parsley-required,
+//   .parsley-type, .parsley-errors-list {
+//     list-style: none;
+//     color: $accent-color;
+//     padding-top: 10px;
+//   }
+//   .field-wrap {
+//     position: relative;
+//     margin-bottom: 40px;
+//   }
+//   .top-row {
+//     &:after {
+//       content: "";
+//       display: table;
+//       clear: both;
+//     }
+//     > div {
+//       float: left;
+//       width: 48%;
+//       margin-right: 4%;
+//       &:last-child {
+//         margin: 0;
+//       }
+//     }
+//   }
+//   .button {
+//     border: 0;
+//     outline: none;
+//     border-radius: 0;
+//     padding: 15px 0;
+//     font-size: 2rem;
+//     text-transform: uppercase;
+//     letter-spacing: 0.1em;
+//     background: $accent-color;
+//     color: $primary-text-color;
+//     transition: all.5s ease;
+//     -webkit-appearance: none;
+//     &:hover,
+//     &:focus {
+//       background: $accent-color-dark;
+//     }
+//   }
+//   .button-block {
+//     display: block;
+//     width: 100%;
+//   }
+// }
+//
+// #bookings-form {
+//   background-image: url("/images/birthday.png");
+//   background-repeat: no-repeat;
+//   background-position: right;
+//   background-size: auto;
+//   form {
+//     margin: 0;
+//   }
+// }

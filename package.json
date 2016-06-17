@@ -25,7 +25,8 @@
     "node-sass-middleware": "0.8.0",
     "nodemailer": "~1.4.0",
     "parse": "latest",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "stripe": "^4.7.0"
   },
   "devDependencies": {
     "babel": "^5.8.23",
