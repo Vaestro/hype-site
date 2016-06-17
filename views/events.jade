@@ -1,0 +1,25 @@
+extends layout
+
+block links
+
+block content
+  .block.block-inverse.text-center
+    .container
+      h1.m-t-lg.p-t-lg This week in new york
+      br
+      each event in events.length ? events : ['There are no events']
+        - var location = event.get('location')
+        - var imageFile = location.get('image');
+        - var imageURL = imageFile.url();
+
+        .row
+          .col-md-6
+            a(href='/event/#{event.id.toString()}') 
+              .panel.panel-bold(style='background-image: url(#{imageURL}); background-size:cover;')
+                .panel-body.p-b-lg.p-t-lg
+                  h3.m-y-0 #{location.get('name')}
+
+                  p #{location.get('neighborhood')}
+                  p #{event.get('date')}
+block scripts
+  script(src='javascripts/login-service.js')

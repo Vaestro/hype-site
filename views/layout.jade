@@ -8,7 +8,7 @@ html(lang='en')
     meta(name='description', content='')
     meta(name='keywords', content='')
     meta(name='author', content='')
-    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.css')
     link(rel='stylesheet', href='/less-css/toolkit-startup.css')
     link(rel='stylesheet', href='/stylesheets/master.css')
     link(rel='stylesheet', href='/stylesheets/mobile.css')
@@ -16,11 +16,11 @@ html(lang='en')
     block links
   
   body
-    include ./includes/navbar.jade
-    #wrapper
-      #panel
-        block content
-    include ./includes/footer.jade
+    include ./includes/sidebar.jade
+    #stage.stage
+      include ./includes/navbar.jade
+      block content
+      include ./includes/footer.jade
     
     script(src='//code.jquery.com/jquery-2.1.4.min.js')
     script(src='/javascripts/analytics.js')

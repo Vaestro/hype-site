@@ -1,60 +1,27 @@
-header
-  .navbar.navbar-inverse.navbar-fixed-top.transparent.hr
-    .container-fluid
-      .navbar-brand.logo
-        a(href='/')
-          img(src= '/images/hypelistlogo.png' id='logo')
-
-          //- img(src= '/images/hypelistlogo.svg' id='logo')
-      .navbar-collapse.collapse
-        ul.nav.navbar-nav.mineul.navbar-center
-          li
-            a(href="https://bnc.lt/b9al/1DZCgVlvms") DOWNLOAD
-          li
-            a(href="/contact") CONTACT
-          li
-            a(href="/host") FOR HOSTS
-
-            
-        ul.nav.navbar-nav.navbar-right
-          li.social-media-icon
-            a(href= "https://www.instagram.com/thehypeapp").icon.fa.fa-instagram
-              span.label
-                Instagram
-          li.social-media-icon
-            a(href= "https://www.facebook.com/hypelistco").icon.fa.fa-facebook
-              span.label
-                Facebook
-      .toggle-button.pull-right
-        a#hamburger-icon
-          span.line.line-1
-          span.line.line-2
-          span.line.line-3
-nav#menu
-  ul
-    li
-      a(href="/bookings") BOOK AN EVENT
-    li
-      a.beta-access-button(href="https://bnc.lt/b9al/1DZCgVlvms") GET THE APP
-  div#menu-bottom
-    ul
-      li
-        a(href="/contact") contact
-      li
-        a(href="/privacy") privacy
-      li
-        a(href="/terms") terms
-
-    ul.hypelist-links
-      li.social-media-icon
-        a(href= "http://instagram.com/thehypeapp").icon.fa.fa-instagram
-          span.label
-            Instagram
-      li.social-media-icon
-        a(href= "https://www.facebook.com/hypelistco").icon.fa.fa-facebook
-          span.label
-            Facebook
-      li.social-media-icon
-        a(href= "http://twitter.com/hypelist_app").icon.fa.fa-twitter
-          span.label 
-            Twitter
+nav.navbar.navbar-transparent.navbar-fixed-top.navbar-padded.app-navbar
+  .container-fluid.m-l-md.m-r-md
+    .navbar-header
+      button.navbar-toggle.collapsed.p-x-0(type='button', data-target='#stage', data-toggle='stage', data-distance='-250')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/')
+        img(src= '/images/hype-icon.svg' id='logo')
+    .navbar-collapse.collapse.text-uppercase
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="https://bnc.lt/b9al/1DZCgVlvms") DOWNLOAD
+        li
+          a(href="/events") EVENTS
+        li
+          a(href="/login") LOGIN
+        li.social-media-icon
+          a(href= "https://www.instagram.com/thehypeapp").icon.icon-instagram
+            span.label
+              Instagram
+        li.social-media-icon
+          a(href= "https://www.facebook.com/hypelistco").icon.icon-facebook
+            span.label
+              Facebook
+    // /.nav-collapse

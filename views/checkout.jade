@@ -1,0 +1,21 @@
+extends layout
+
+block links
+
+block content
+  - var location = event.get('location')
+  - var imageFile = location.get('image');
+  - var imageURL = imageFile.url();
+  .block.block-inverse.text-center
+    .panel.panel-bold(style='background-image: url(#{imageURL}); background-size:cover;')
+      .panel-body.p-b-lg.p-t-lg
+    h1.m-t-lg.p-t-lg #{location.get('name')}
+    button#btn.btn-lg.btn-primary
+      | Checkout
+    .row
+      .col-md-6
+        a(href='/#{event.id.toString()}/#{admissionOption.id.toString()}/checkout') 
+          p #{admissionOption.get('name')}
+    
+block scripts
+  script(src='javascripts/login-service.js')
