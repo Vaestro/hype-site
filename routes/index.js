@@ -178,9 +178,29 @@ router.post('/charge', function(req, res, next) {
     });
 });
 
-// router.post('/free-charge', function(req, res, next) {
-//
-// });
+router.post('/free-charge', function(req, res, next) {
+    
+    
+    
+    var data = {
+        email: req.body.email,
+        phoneNumber: req.body.phoneNumber,
+        admissionOptionId: req.body.admissionOptionID,
+        eventId: req.body.eventID,
+        customerName: req.body.name
+    };
+
+    console.log('data is ' + JSON.stringify(data));
+
+    Parse.Cloud.run('hypeLaunchPartyPurchase', data).then(function(response) {
+        return res.render('checkout-success', {
+            title: 'Thank you!'
+        });
+    }, function(error){
+        return next(error);
+    });
+});
+
 
 /* GET beta access page. */
 router.get('/betarequest', function(req, res, next) {

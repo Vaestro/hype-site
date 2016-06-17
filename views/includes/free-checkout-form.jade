@@ -5,6 +5,10 @@ form#free-checkout-form.form-horizontal(role='form', action='/free-charge', meth
       label.col-sm-3.control-label(for='email') Email
       .col-sm-9
         input#email.form-control(type='text', name='email', placeholder="Your email")
-  
+    .form-group
+      label.col-sm-3.control-label(for='phoneNumber') Phone Number
+      .col-sm-9
+        input#phoneNumberl.form-control(type='text', name='phoneNumber', placeholder="Your phone number")
+
     .col-sm-offset-3.col-sm-9
       button#submit-btn.btn.btn-success(type='submit') Pay Now
