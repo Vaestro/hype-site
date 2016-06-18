@@ -16,6 +16,7 @@
     "express-less": "0.0.8",
     "fb": "^1.1.1",
     "formidable": "1.0.17",
+    "google-libphonenumber": "^1.0.22",
     "jade": "~1.11.0",
     "less-middleware": "^2.1.0",
     "mongoose": "latest",

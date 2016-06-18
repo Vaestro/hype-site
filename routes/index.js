@@ -6,6 +6,8 @@ var Event = Parse.Object.extend("Event");
 var AdmissionOption = Parse.Object.extend("AdmissionOption");
 var Location = Parse.Object.extend("Location");
 var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+var PNF = require('google-libphonenumber').PhoneNumberFormat;
+var phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
 
 Parse.initialize("5t3F1S3wKnVGIKHob1Qj0Je3sygnFiwqAu6PP400",
     "NyZCP6peg3Si9VwUYLZdCRMAj62xoNBxOMOgv76M", "NUwTuaL9aqcGkgFc0MUrng4SdQz9RPDcEudMvUGZ");
@@ -158,9 +160,15 @@ router.post('/charge', function(req, res, next) {
 
         console.log('successful payment ' + JSON.stringify(charge));
 
+        var phoneNumber = phoneUtil.parse(req.body.phoneNumber, 'US');
+
+        var formattedPhoneNumber = phoneUtil.format(phoneNumber, PNF.INTERNATIONAL);
+
+        var newPhoneNumber = formattedPhoneNumber.replace(/-|\s/g,"");
+
         var data = {
             email: req.body.email,
-            phoneNumber: req.body.phoneNumber,
+            phoneNumber: newPhoneNumber,
             admissionOptionId: req.body.admissionOptionID,
             eventId: req.body.eventID,
             customerName: req.body.name
@@ -179,12 +187,15 @@ router.post('/charge', function(req, res, next) {
 });
 
 router.post('/free-charge', function(req, res, next) {
-    
-    
+    var phoneNumber = phoneUtil.parse(req.body.phoneNumber, 'US');
+
+    var formattedPhoneNumber = phoneUtil.format(phoneNumber, PNF.INTERNATIONAL);
+
+    var newPhoneNumber = formattedPhoneNumber.replace(/-|\s/g,"");
     
     var data = {
         email: req.body.email,
-        phoneNumber: req.body.phoneNumber,
+        phoneNumber: newPhoneNumber,
         admissionOptionId: req.body.admissionOptionID,
         eventId: req.body.eventID,
         customerName: req.body.name
