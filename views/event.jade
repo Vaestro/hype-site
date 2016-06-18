@@ -6,6 +6,7 @@ block content
   - var location = event.get('location')
   - var imageFile = location.get('image');
   - var imageURL = imageFile.url();
+
   .block.block-inverse.text-center
     .container 
       //- .panel.panel-bold(style='background-image: url(#{imageURL}); background-size:cover; background-position:center;')
@@ -15,11 +16,20 @@ block content
 
       h1.m-b-lg #{location.get('name')}
       each admissionOption in admissionOptions.length ? admissionOptions : ['There are no admissionOptions']
+        - var admissionGender = admissionOption.get('gender');
         .row
           .col-md-12
-            a(href='/event/#{event.id.toString()}/#{admissionOption.id.toString()}/checkout') 
-              .panel.panel-bold.panel-danger
-                .panel-body.p-b-sm.p-t-sm
-                  h3.m-y-0 TICKET | #{admissionOption.get('name')} - 
-                    span
-                      $#{admissionOption.get('price')}
+            if admissionGender == '1'
+              a(href='/event/#{event.id.toString()}/#{admissionOption.id.toString()}/checkout')
+                .panel.panel-bold.panel-info
+                  .panel-body.p-b-md.p-t-md
+                    h3.m-y-0 TICKET | #{admissionOption.get('name')} - 
+                      span
+                        $#{admissionOption.get('price')}
+            else
+              a(href='/event/#{event.id.toString()}/#{admissionOption.id.toString()}/checkout')
+                .panel.panel-bold.panel-danger
+                  .panel-body.p-b-md.p-t-md
+                    h3.m-y-0 TICKET | #{admissionOption.get('name')} - 
+                      span
+                        $#{admissionOption.get('price')}

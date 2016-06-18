@@ -104,6 +104,7 @@ router.get('/event/:id', function(req, res, next) {
         var location = new Location();
         location.id = event.get('location').id;
         admissionQuery.equalTo("location", location);
+        admissionQuery.notEqualTo("type", 1);
         return admissionQuery.find().then(null, function(error) {
             return next(err);
         });

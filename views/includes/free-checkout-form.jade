@@ -1,10 +1,11 @@
-form#free-checkout-form.form-horizontal(role='form', action='/free-charge', method='post')
+form#free-checkout-form.form-horizontal(role='form', action='/free-charge', method='post', data-parsley-validate='')
   fieldset
-    legend Payment
     .form-group
-      label.col-sm-3.control-label(for='email') Email
-      .col-sm-9
-        input#email.form-control(type='text', name='email', placeholder="Your email")
-  
+      label.control-label(for='email') Email
+      input#email.form-control(type='text', name='email', placeholder="Your email", required="", data-parsley-type="email")
+    .form-group
+      label.control-label(for='phoneNumber') Phone Number
+      input#email.form-control(type='text', name='phoneNumber', placeholder="Your phone number", required="", data-parsley-type="digits", data-parsley-length="[10,11]")
+      
     .col-sm-offset-3.col-sm-9
-      button#submit-btn.btn.btn-success(type='submit') Pay Now
+      button#submit-btn.btn.btn-primary.btn-lg(type='submit') Get Ticket
