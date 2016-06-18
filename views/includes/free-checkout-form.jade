@@ -6,4 +6,6 @@ form#free-checkout-form.form-horizontal(role='form', action='/free-charge', meth
     .form-group
       label.control-label(for='phoneNumber') Phone Number
       input#email.form-control(type='text', name='phoneNumber', placeholder="Your phone number", required="", data-parsley-type="digits", data-parsley-length="[10,11]")
+      input.form-group(type='hidden', name='admissionOptionID', value="#{admissionOption.id}")
+      input.form-group(type='hidden', name='eventID', value="#{event.id}")
     button#submit-btn.btn.btn-primary.btn-lg(type='submit') Get Ticket
