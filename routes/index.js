@@ -198,8 +198,7 @@ router.post('/free-charge', function(req, res, next) {
         email: req.body.email,
         phoneNumber: newPhoneNumber,
         admissionOptionId: req.body.admissionOptionID,
-        eventId: req.body.eventID,
-        customerName: req.body.name
+        eventId: req.body.eventID
     };
 
     console.log('data is ' + JSON.stringify(data));
