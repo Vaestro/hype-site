@@ -5,12 +5,12 @@ var Parse = require('parse/node');
 var Event = Parse.Object.extend("Event");
 var AdmissionOption = Parse.Object.extend("AdmissionOption");
 var Location = Parse.Object.extend("Location");
-var stripe = require('stripe')('sk_live_brHKisyZ82Yyizrzba5pw78X');
+var stripe = require('stripe')(process.env.DEV_STRIPE_SECRET_KEY);
 var PNF = require('google-libphonenumber').PhoneNumberFormat;
 var phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
 
-Parse.initialize("D0AnOPXqqfz7bfE70WvdlE8dK7Qj1kxgf4rPm8rX",
-    "7B1icYTMfTjnAxmLxEsnSRPGKUne2BOfKiZVNN2Y", "cjJkZYwXKQYbb9YWAi9K8aIUNNonPErKst7YE2Bo");
+Parse.initialize(process.env.DEV_PARSE_APPLICATION_ID,
+    process.env.DEV_PARSE_JAVASCRIPT_KEY, process.env.DEV_PARSE_MASTER_KEY);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
