@@ -1,5 +1,5 @@
 // Stripe.setPublishableKey('pk_live_H8u89AfEDonln00iEUB0kKtZ');
-Stripe.setPublishableKey('pk_test_cGZ7E1Im6VPKQHYUXIkR6sEe');
+Stripe.setPublishableKey('pk_live_H8u89AfEDonln00iEUB0kKtZ');
 
 $('#checkout-form').on('submit', function(event){
 
