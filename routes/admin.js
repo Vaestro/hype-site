@@ -26,7 +26,7 @@ router.get('/event/:id', function(req, res, next) {
         event = fetchedEvent;
         var completedTransactionQuery = new Parse.Query(CompletedTransaction);
         completedTransactionQuery.equalTo("event", event);
-        return completedTransactionQuery.find().then(null, function(error) {
+        return completedTransactionQuery.limit(1000).find().then(null, function(error) {
             return next(err);
         });
     }).then(function(completedTransactionQuery) {

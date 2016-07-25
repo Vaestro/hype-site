@@ -6,13 +6,13 @@ block content
     - var location = event.get('location')
     - var imageFile = location.get('image');
     - var imageURL = imageFile.url();
-
+    - var ticketNumber = 1;
     .block.block-inverse
         .container 
             div.inline-block
                 img.img-responsive(src="#{imageURL}", height='250', width='250')
             h1.m-b-lg #{location.get('name')}
-            //- h3 #{event.get('date')}
+            h3 Ticket count #{completedTransactions.length}
             .table-full
                 .table-responsive
                     table.table(data-sort='table')
@@ -20,14 +20,16 @@ block content
                             tr
                                 th
                                     input#selectAll.select-all(type='checkbox')
+                                th #
                                 th Customer name
                                 th Description
       
                         tbody
                         each completedTransaction in completedTransactions.length ? completedTransactions : ['There are no completedTransactions']
                             tr
-                                td
+                                td  
                                     input.select-row(type='checkbox')
+                                td  ##{ticketNumber++}
                                 td  #{completedTransaction.get('customerName')}
                                 td  #{completedTransaction.get('description')}
 
