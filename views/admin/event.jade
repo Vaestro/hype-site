@@ -1,0 +1,38 @@
+extends layout
+
+block links
+
+block content
+    - var location = event.get('location')
+    - var imageFile = location.get('image');
+    - var imageURL = imageFile.url();
+
+    .block.block-inverse
+        .container 
+            div.inline-block
+                img.img-responsive(src="#{imageURL}", height='250', width='250')
+            h1.m-b-lg #{location.get('name')}
+            //- h3 #{event.get('date')}
+            .table-full
+                .table-responsive
+                    table.table(data-sort='table')
+                        thead
+                            tr
+                                th
+                                    input#selectAll.select-all(type='checkbox')
+                                th Customer name
+                                th Description
+      
+                        tbody
+                        each completedTransaction in completedTransactions.length ? completedTransactions : ['There are no completedTransactions']
+                            tr
+                                td
+                                    input.select-row(type='checkbox')
+                                td  #{completedTransaction.get('customerName')}
+                                td  #{completedTransaction.get('description')}
+
+
+
+
+block scripts
+    script(src='/javascripts/orders.js')

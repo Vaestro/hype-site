@@ -165,7 +165,7 @@ router.post('/charge', function(req, res, next) {
 
         var formattedPhoneNumber = phoneUtil.format(phoneNumber, PNF.INTERNATIONAL);
 
-        var newPhoneNumber = formattedPhoneNumber.replace(/-|\s/g,"");
+        var newPhoneNumber = formattedPhoneNumber.replace(/-|\s/g, "");
 
         var data = {
             email: req.body.email,
@@ -192,7 +192,7 @@ router.post('/free-charge', function(req, res, next) {
 
     var formattedPhoneNumber = phoneUtil.format(phoneNumber, PNF.INTERNATIONAL);
 
-    var newPhoneNumber = formattedPhoneNumber.replace(/-|\s/g,"");
+    var newPhoneNumber = formattedPhoneNumber.replace(/-|\s/g, "");
 
     var data = {
         email: req.body.email,
@@ -207,7 +207,7 @@ router.post('/free-charge', function(req, res, next) {
         return res.render('checkout-success', {
             title: 'Thank you!'
         });
-    }, function(error){
+    }, function(error) {
         return next(error);
     });
 });
