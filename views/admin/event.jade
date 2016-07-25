@@ -7,12 +7,14 @@ block content
     - var imageFile = location.get('image');
     - var imageURL = imageFile.url();
     - var ticketNumber = 1;
+        
     .block.block-inverse
         .container 
             div.inline-block
                 img.img-responsive(src="#{imageURL}", height='250', width='250')
             h1.m-b-lg #{location.get('name')}
             h3 Ticket count #{completedTransactions.length}
+            h5 Male ticket count #{maleAdmissions.length} | Female Ticket Count #{femaleAdmissions.length}
             .table-full
                 .table-responsive
                     table.table(data-sort='table')
