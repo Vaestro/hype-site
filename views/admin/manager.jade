@@ -26,7 +26,7 @@ block content
                             each transaction in transactions.length ? transactions : ['There are no transactions']
                                 - var event = transaction.get('event');
                                 - var date = event.get('date');
-                                - var formattedDate = moment(date).format('dddd MMM Do');
+                                - var formattedDate = moment(date).tz('America/New_York').format('dddd MMM Do');
                                     tr
                                         td  ##{ticketNumber++}
                                         td  #{transaction.get('customerName')}
