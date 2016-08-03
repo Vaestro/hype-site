@@ -1,0 +1,66 @@
+extends layout
+
+block links
+
+block content
+    - var ticketNumber = 1;
+
+    .block.block-inverse
+        .container 
+            h1.m-b-lg #{user.firstName} #{user.lastName}
+
+            if transactions.length > 0
+                h3 Ticket count #{transactions.length}
+                .table-full
+                    .table-responsive
+                        table.table(data-sort='table')
+                            thead
+                                tr
+                                    th
+                                        input#selectAll.select-all(type='checkbox')
+                                    th #
+                                    th Customer name
+                                    th Venue
+                                    th Description
+                                    th Date
+
+                            tbody
+                            each transaction in transactions.length ? transactions : ['There are no transactions']
+                                - var date = transaction.get('date');
+                                - var formattedDate = moment(date).format('dddd MMM Do');
+                                    tr
+                                        td  
+                                            input.select-row(type='checkbox')
+                                        td  ##{ticketNumber++}
+                                        td  #{transaction.get('customerName')}
+                                        td  #{transaction.get('venue')}
+                                        td  #{transaction.get('description')}
+                                        td  #{formattedDate}
+            else 
+                h3 No Ticket Sales Yet
+//- block content
+//- 
+//-     .block.block-inverse
+//-         .container 
+//-             h1.m-b-lg #{user.firstName} #{user.lastName}
+//-             if events.length > 0
+//-               each event in events.length ? events : ['There are no events']
+//-                   - var location = event.get('location')
+//-                   - var imageFile = location.get('image');
+//-                   - var imageURL = imageFile.url();
+//-                   - var date = event.get('date');
+//-                   - var formattedDate = moment(date).format('dddd MMM Do');
+//-                   .row
+//-                       .col-md-6
+//-                           a(href='admin/event/#{event.id.toString()}?token=#{token}') 
+//-                               .panel.panel-bold.panel-danger
+//-                                   .panel-body.p-b-lg.p-t-lg
+//-                                       h3.m-y-0 #{location.get('name')}
+//- 
+//-                                       p #{location.get('neighborhood')}
+//-                                       p #{formattedDate}
+//-             else 
+//-               h1.m-b-lg No events
+
+block scripts
+  script(src='/javascripts/dataTable.js')

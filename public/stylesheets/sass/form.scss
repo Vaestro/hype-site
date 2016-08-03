@@ -1,68 +1,108 @@
-@import "styleguide";
-// @import "modal";
-
+@import "styleguide"; // @import "modal";
 /* --- material floating label --- */
-
-.form-group {
-    display: flex;
-    height: 55px;
-    background:black;
-
-}
+// .form-group {
+//     display: flex;
+//     height: 55px;
+//     background: black;
+// }
+.parsley-errors-list,
 .parsley-required,
-  .parsley-type, .parsley-errors-list {
+.parsley-type {
     list-style: none;
     color: $accent-color;
     padding-top: 10px;
-    font-size:16px;
-  }
-
-input[type="text"]{
-color:white !important
-}
-
-.control-label {
     font-size: 16px;
-    font-weight: 400;
-    opacity: 0.4;
-    pointer-events: none;
-    position: absolute;
-    transform: translate3d(0, 22px, 0) scale(1);
-    transform-origin: left top;
-    transition: 240ms;
 }
 
-.form-group.focused .control-label {
-    opacity: 1;
-    transform: scale(0.75);
+$color-primary: #ABA194;
+
+.user {
+    width: 90%;
+    max-width: 340px;
+    margin: 10vh auto;
 }
 
-.form-control {
-    align-self: flex-end;
-    background:black;
-    border:0;
-     border-bottom: 2px solid white;
-     border-radius: 0px;
+.form {
+    margin-top: 40px;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-.form-control:focus {
-  background:black;
-  border:0;
-  border-bottom: 2px solid $accent-color;
-  border-radius: 0px;
-}
-.form-control::-webkit-input-placeholder {
-    color: transparent;
-    transition: 240ms;
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    transition: 0.3s;
+
+    &:focus {
+        background: darken(#fff, 3%);
+    }
 }
 
-.form-control:focus::-webkit-input-placeholder {
-    transition: none;
+.btn {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: #C5B358;
+    transition: 0.3s;
+
+    &:hover {
+        background: darken(#C5B358, 5%);
+    }
 }
 
-.form-group.focused .form-control::-webkit-input-placeholder {
-    color: #000;
+input[type="text"] {
+    color: black !important;
 }
+input,
+select,
+textarea {
+    color: black !important;
+}
+// .control-label {
+//     font-size: 16px;
+//     font-weight: 400;
+//     opacity: 0.4;
+//     pointer-events: none;
+//     position: absolute;
+//     transform: translate3d(0, 22px, 0) scale(1);
+//     transform-origin: left top;
+//     transition: 240ms;
+// }
+// .form-group.focused .control-label {
+//     opacity: 1;
+//     transform: scale(0.75);
+// }
+// .form-control {
+//     align-self: flex-end;
+//     background: black;
+//     border: 0;
+//     border-bottom: 2px solid white;
+//     border-radius: 0;
+// }
+// .form-control:focus {
+//     background: black;
+//     border: 0;
+//     border-bottom: 2px solid $accent-color;
+//     border-radius: 0;
+// }
+// .form-control::-webkit-input-placeholder {
+//     color: transparent;
+//     transition: 240ms;
+// }
+// .form-control:focus::-webkit-input-placeholder {
+//     transition: none;
+// }
+// .form-group.focused .form-control::-webkit-input-placeholder {
+//     color: #000;
+// }
 // #banner {
 //   padding: 100px 100px 0;
 // }
