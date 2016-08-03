@@ -5,6 +5,7 @@ var Event = Parse.Object.extend("Event");
 var AdmissionOption = Parse.Object.extend("AdmissionOption");
 var CompletedTransaction = Parse.Object.extend("CompletedTransaction");
 var Location = Parse.Object.extend("Location");
+var moment = require('moment');
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 
 Parse.initialize(process.env.PARSE_APPLICATION_ID,
@@ -74,6 +75,7 @@ router.use(function(req, res, next) {
             } else {
                 // if everything is good, save to request for use in other routes
                 req.decoded = decoded;
+                console.log('token decoded')
                 next();
             }
         });
