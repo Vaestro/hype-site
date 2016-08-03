@@ -16,26 +16,23 @@ block content
                         table.table(data-sort='table')
                             thead
                                 tr
-                                    th
-                                        input#selectAll.select-all(type='checkbox')
                                     th #
                                     th Customer name
                                     th Venue
-                                    th Description
                                     th Date
+                                    th Description
 
                             tbody
                             each transaction in transactions.length ? transactions : ['There are no transactions']
-                                - var date = transaction.get('date');
+                                - var event = transaction.get('event');
+                                - var date = event.get('date');
                                 - var formattedDate = moment(date).format('dddd MMM Do');
                                     tr
-                                        td  
-                                            input.select-row(type='checkbox')
                                         td  ##{ticketNumber++}
                                         td  #{transaction.get('customerName')}
                                         td  #{transaction.get('venue')}
-                                        td  #{transaction.get('description')}
                                         td  #{formattedDate}
+                                        td  #{transaction.get('description')}
             else 
                 h3 No Ticket Sales Yet
 //- block content
@@ -63,4 +60,4 @@ block content
 //-               h1.m-b-lg No events
 
 block scripts
-  script(src='/javascripts/dataTable.js')
+    script(src='/javascripts/dataTable.js')

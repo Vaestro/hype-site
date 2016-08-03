@@ -5,8 +5,6 @@ var Event = Parse.Object.extend("Event");
 var AdmissionOption = Parse.Object.extend("AdmissionOption");
 var CompletedTransaction = Parse.Object.extend("CompletedTransaction");
 var Location = Parse.Object.extend("Location");
-var moment = require('moment');
-
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 
 Parse.initialize(process.env.PARSE_APPLICATION_ID,
@@ -92,6 +90,7 @@ router.get('/', function(req, res, next) {
     innerQuery.equalTo("organizerId", user.objectId);
     var query = new Parse.Query(CompletedTransaction);
     query.matchesQuery("event", innerQuery);
+    query.include("event");
     query.addDescending("date");
     return query.limit(1000).find().then(function(results) {
       console.log(results.length);
