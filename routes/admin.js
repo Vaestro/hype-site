@@ -8,8 +8,12 @@ var Location = Parse.Object.extend("Location");
 var moment = require('moment');
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 
-Parse.initialize(process.env.PARSE_APPLICATION_ID,
-    process.env.PARSE_JAVASCRIPT_KEY, process.env.PARSE_MASTER_KEY);
+if (process.env.NODE_ENV == "development") {
+    Parse.initialize(process.env.DEV_PARSE_APPLICATION_ID);
+    Parse.serverURL = process.env.DEV_PARSE_SERVER_URL;
+} else {
+    Parse.initialize(process.env.PARSE_APPLICATION_ID, process.env.PARSE_JAVASCRIPT_KEY, process.env.PARSE_MASTER_KEY);
+}
 
 function generateToken(user) {
     var payload = {
@@ -45,11 +49,11 @@ router.get('/login', function(req, res, next) {
 });
 
 router.post('/authenticate', function(req, res, next) {
-  console.log(req.body);
+    console.log(req.body);
     var username = req.body.username;
     var password = req.body.password;
     Parse.User.logIn(username, password).then(function(user) {
-      console.log('succesfully logged in');
+        console.log('succesfully logged in');
         var token = generateToken(user);
         return res.redirect('/admin?token=' + token);
     }, function(error) {
@@ -95,7 +99,7 @@ router.get('/', function(req, res, next) {
     query.include("event");
     query.addDescending("date");
     return query.limit(1000).find().then(function(results) {
-      console.log(results.length);
+        console.log(results.length);
         res.render('admin/manager', {
             title: 'Hype Admin',
             user: req.decoded.sub,

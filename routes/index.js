@@ -9,8 +9,12 @@ var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 var PNF = require('google-libphonenumber').PhoneNumberFormat;
 var phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
 
-Parse.initialize(process.env.PARSE_APPLICATION_ID,
-    process.env.PARSE_JAVASCRIPT_KEY, process.env.PARSE_MASTER_KEY);
+if (process.env.NODE_ENV == "development") {
+    Parse.initialize(process.env.DEV_PARSE_APPLICATION_ID);
+    Parse.serverURL = process.env.DEV_PARSE_SERVER_URL;
+} else {
+    Parse.initialize(process.env.PARSE_APPLICATION_ID, process.env.PARSE_JAVASCRIPT_KEY, process.env.PARSE_MASTER_KEY);
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
