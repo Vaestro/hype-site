@@ -9,12 +9,9 @@ var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 var PNF = require('google-libphonenumber').PhoneNumberFormat;
 var phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
 
-if (process.env.NODE_ENV == "development") {
-    Parse.initialize(process.env.DEV_PARSE_APPLICATION_ID);
-    Parse.serverURL = process.env.DEV_PARSE_SERVER_URL;
-} else {
-    Parse.initialize(process.env.PARSE_APPLICATION_ID, process.env.PARSE_JAVASCRIPT_KEY, process.env.PARSE_MASTER_KEY);
-}
+Parse.initialize(process.env.PARSE_APPLICATION_ID);
+Parse.serverURL = process.env.PARSE_SERVER_URL;
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -99,26 +96,28 @@ router.get('/events', function(req, res, next) {
 
 router.get('/event/:id', function(req, res, next) {
     var event, admissionOptions;
+    var tickets = [];
 
     var eventID = req.params.id;
     var query = new Parse.Query(Event);
     query.include("location");
+    query.include("admissionOptions");
     query.get(eventID).then(function(fetchedEvent) {
         event = fetchedEvent;
+        admissionOptions = event.get('admissionOptions');
 
-        var admissionQuery = new Parse.Query(AdmissionOption);
-        var location = new Location();
-        location.id = event.get('location').id;
-        admissionQuery.equalTo("location", location);
-        admissionQuery.notEqualTo("type", 1);
-        return admissionQuery.find().then(null, function(error) {
-            return next(err);
-        });
-    }).then(function(admissionQuery) {
-        admissionOptions = admissionQuery;
+        // Only show tickets (temporary)
+        for (i = 0, length = admissionOptions.length; i < length; i++) {
+            var admissionOption = admissionOptions[i];
+            if (admissionOption.get('type') == 0) {
+              // admissionOptions with a type 0 are tickets
+                tickets.push(admissionOption);
+            }
+        }
+        console.log(tickets);
         return res.render('event', {
             event: event,
-            admissionOptions: admissionOptions,
+            admissionOptions: tickets,
             user: req.user
         });
     }).done();
