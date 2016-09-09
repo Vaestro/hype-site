@@ -8,8 +8,12 @@ var Location = Parse.Object.extend("Location");
 var moment = require('moment');
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 
-Parse.initialize(process.env.PARSE_APPLICATION_ID);
-Parse.serverURL = process.env.PARSE_SERVER_URL;
+if (process.env.NODE_ENV == "development") {
+    Parse.initialize(process.env.PARSE_APPLICATION_ID);
+    Parse.serverURL = process.env.PARSE_SERVER_URL;
+} else {
+    Parse.initialize(process.env.PARSE_APPLICATION_ID, process.env.PARSE_JAVASCRIPT_KEY, process.env.PARSE_MASTER_KEY);
+}
 
 function generateToken(user) {
     var payload = {
