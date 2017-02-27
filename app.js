@@ -13,9 +13,6 @@ var request = require('request');
 var sassMiddleware = require('node-sass-middleware');
 var expressLess = require('express-less');
 
-// Load environment variables from .env file
-dotenv.load();
-
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
 
